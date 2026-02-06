@@ -21,7 +21,7 @@ namespace smrp.Models
         public required DateTime LastLogin { get; set; }
         public List<Role>? Roles { get; set; }
 
-        public static async Task<List<User>> GetQAsync(IEnumerable<dynamic> q, IDbConnection con)
+        public static async Task<List<User>> ListAsync(IEnumerable<dynamic> q, IDbConnection con)
         {
             var qx = q.ToAsyncEnumerable();
             var qs = qx.Select(async o => new User
@@ -51,7 +51,7 @@ namespace smrp.Models
             return lx;
         }
 
-        public static async Task<User> FromQAsync(dynamic o, IDbConnection con)
+        public static async Task<User> SingleAsync(dynamic o, IDbConnection con)
         {
             return new User
             {
