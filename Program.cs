@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
 using Npgsql;
 using System.Data;
+using System.Reflection.Metadata;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,19 @@ builder.Services.AddSwaggerGen(c =>
         Title = "Swagger SMRP API",
         Version = "v1",
         Description = "SMRP API"
+    });
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = @"JWT Authorization header using the Bearer scheme.",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+    });
+    c.AddSecurityRequirement(document => new OpenApiSecurityRequirement
+    {
+        [new OpenApiSecuritySchemeReference("Bearer", document)] = []
     });
 });
 builder.Services.AddScoped<IDbConnection>(x => new NpgsqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -60,6 +75,8 @@ app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint($"/{basePath}/swagger/v1/swagger.json", "SMRP API V1");
     c.DocumentTitle = "Swagger SMRP API";
+    c.InjectStylesheet("/css/theme-feeling-blue.css");
+    c.ConfigObject.AdditionalItems.Add("persistAuthorization", "true");
 });
 
 app.MapControllers();
