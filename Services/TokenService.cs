@@ -19,7 +19,7 @@ namespace smrp.Services
 
         public string GenerateAccessToken(User user)
         {
-            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
+            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"] ?? ""));
             SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             Claim[] claims = new[]
             {
@@ -39,7 +39,7 @@ namespace smrp.Services
 
         public string GenerateRefreshToken(User user)
         {
-            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
+            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"] ?? ""));
             SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             Claim[] claims = new[]
             {
@@ -64,7 +64,7 @@ namespace smrp.Services
                 ValidateAudience = true,
                 ValidateIssuer = true,
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"])),
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"] ?? "")),
                 ValidateLifetime = false // We want to get claims from expired token
             };
 

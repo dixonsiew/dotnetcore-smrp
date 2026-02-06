@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using System.Data;
+using System.Linq;
 using System.Text.Json.Serialization;
 
 namespace smrp.Models
@@ -20,20 +21,29 @@ namespace smrp.Models
         public required DateTime LastLogin { get; set; }
         public List<Role>? Roles { get; set; }
 
-        public static IEnumerable<User> GetQ(IEnumerable<dynamic> q, IDbConnection con)
+        public static async Task<List<User>> GetQAsync(IEnumerable<dynamic> q, IDbConnection con)
         {
-            return q.Select(o => new User {
+            var qx = q.ToAsyncEnumerable();
+            var qs = qx.Select(async o => new User
+            {
                 Id = o.id,
                 FirstName = o.first_name,
                 LastName = o.last_name,
                 Password = o.password,
                 Username = o.username,
                 LastLogin = o.last_login,
-                Roles = GetRoles(o.id, con)
+                Roles = await GetRolesAsync(o.id, con),
             });
+            var rx = await qs.ToListAsync();
+            List<User> lx = new List<User>();
+            foreach (var x in rx)
+            {
+                lx.Add(await x);
+            }
+            return lx;
         }
 
-        private async static Task<List<Role>> GetRoles(long id, IDbConnection con)
+        private static async Task<List<Role>> GetRolesAsync(long id, IDbConnection con)
         {
             List<Role> lx = new List<Role>();
             var q = await con.QueryAsync(@"select aur.app_user_id, aur.roles_id, r.id, r.name from app_user_roles aur inner join role r on aur.roles_id = r.id where aur.app_user_id = @userId", new { userId = id});
@@ -41,7 +51,7 @@ namespace smrp.Models
             return lx;
         }
 
-        public static User FromQ(dynamic o)
+        public static async Task<User> FromQAsync(dynamic o, IDbConnection con)
         {
             return new User
             {
@@ -51,6 +61,7 @@ namespace smrp.Models
                 Password = o.password,
                 Username = o.username,
                 LastLogin = o.last_login,
+                Roles = await GetRolesAsync(o.id, con),
             };
         }
     }

@@ -1,23 +1,13 @@
 [
   {
-    "ContainingType": "smrp.Controllers.AppUserController",
-    "Method": "GetUsers",
-    "RelativePath": "app-user/list",
+    "ContainingType": "smrp.Controllers.AuthController",
+    "Method": "UserDetails",
+    "RelativePath": "api/current-user",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[smrp.Models.AppUser, smrp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "smrp.Controllers.AppUserController",
@@ -32,14 +22,14 @@
   {
     "ContainingType": "smrp.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "auth/login",
+    "RelativePath": "o/token",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "data",
-        "Type": "smrp.Dtos.Login",
+        "Type": "smrp.Dtos.LoginDto",
         "IsRequired": true
       }
     ],

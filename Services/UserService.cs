@@ -19,7 +19,7 @@ namespace smrp.Services
             var q = await conn.QuerySingleOrDefaultAsync(@"select id, username, first_name, last_name, password, last_login from app_user where id = @id limit 1", new { id = id });
             if (q != null)
             {
-                user = User.FromQ(q);
+                user = await User.FromQAsync(q, conn);
             }
 
             return user;
@@ -31,7 +31,7 @@ namespace smrp.Services
             var q = await conn.QuerySingleOrDefaultAsync(@"select id, username, first_name, last_name, password, last_login from app_user where username = @username limit 1", new { username = username });
             if (q != null)
             {
-                user = User.FromQ(q);
+                user = await User.FromQAsync(q, conn);
             }
 
             return user;
@@ -41,7 +41,7 @@ namespace smrp.Services
         {
             List<User> lx = new List<User>();
             var q = await conn.QueryAsync(@$"select t.id, t.username, t.first_name, t.last_name, t.password, t.last_login from app_user t order by {sortBy} {sortDir} offset @offset limit @limit", new { offset = offset, limit = limit });
-            lx = User.GetQ(q, conn).ToList();
+            lx = await User.GetQAsync(q, conn);
             return lx;
         }
 
