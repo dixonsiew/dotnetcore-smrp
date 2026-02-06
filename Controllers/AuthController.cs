@@ -36,6 +36,10 @@ namespace smrp.Controllers
             {
                 return Results.Json(mx, statusCode: StatusCodes.Status401Unauthorized);
             }
+
+            await userService.UpdateLastLogin(user.Id);
+            string token = tokenService.GenerateAccessToken(user);
+            string refreshToken = tokenService.GenerateRefreshToken(user);
         }
     }
 }

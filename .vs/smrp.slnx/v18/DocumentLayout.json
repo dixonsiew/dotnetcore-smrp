@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\controllers\\appusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:controllers\\appusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\services\\appuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:services\\appuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,43 +34,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAE0AAAAvAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwC8AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-06T07:06:47.35Z",
+              "WhenOpened": "2026-02-06T09:09:39.203Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Models\\Role.cs",
+              "RelativeDocumentMoniker": "Models\\Role.cs",
+              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Models\\Role.cs",
+              "RelativeToolTip": "Models\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T07:56:02.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
               "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\AuthController.cs",
               "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAYwBgAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAIwCkAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-06T02:39:30.072Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "TokenService.cs",
               "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Services\\TokenService.cs",
               "RelativeDocumentMoniker": "Services\\TokenService.cs",
               "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Services\\TokenService.cs",
               "RelativeToolTip": "Services\\TokenService.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAwBoAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-06T02:15:03.269Z",
               "EditorCaption": ""
@@ -83,35 +96,22 @@
               "RelativeDocumentMoniker": "Controllers\\AppUserController.cs",
               "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\AppUserController.cs",
               "RelativeToolTip": "Controllers\\AppUserController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAwB8AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-05T14:40:37.956Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AppUserService.cs",
-              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Services\\AppUserService.cs",
-              "RelativeDocumentMoniker": "Services\\AppUserService.cs",
-              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Services\\AppUserService.cs",
-              "RelativeToolTip": "Services\\AppUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Services\\UserService.cs",
+              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Services\\UserService.cs",
+              "RelativeToolTip": "Services\\UserService.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAowEMAAABvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-05T14:37:06.353Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AppUser.cs",
-              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Models\\AppUser.cs",
-              "RelativeDocumentMoniker": "Models\\AppUser.cs",
-              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Models\\AppUser.cs",
-              "RelativeToolTip": "Models\\AppUser.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAIwBMAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T14:29:35.42Z",
               "EditorCaption": ""
             }
           ]

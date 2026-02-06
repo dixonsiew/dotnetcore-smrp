@@ -63,6 +63,11 @@ namespace smrp.Services
             return q;
         }
 
+        public async Task UpdateLastLogin(long id)
+        {
+            await conn.ExecuteAsync(@"update app_user set last_login = now() where id = @id", new { id = id });
+        }
+
         public bool ValidateCredentials(User user, string password)
         {
             return BCrypt.Net.BCrypt.Verify(password, user.Password);
