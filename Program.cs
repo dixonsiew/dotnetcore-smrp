@@ -79,6 +79,7 @@ app.UseSwaggerUI(c =>
     c.DocumentTitle = "Swagger SMRP API";
     c.InjectStylesheet("/css/theme-feeling-blue.css");
     c.ConfigObject.AdditionalItems.Add("persistAuthorization", "true");
+    c.EnablePersistAuthorization();
 });
 
 app.MapControllers();

@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "smrp.Controllers.AuthController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.AuthController",
     "Method": "UserDetails",
     "RelativePath": "api/current-user",
     "HttpMethod": "GET",
@@ -10,13 +26,60 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "smrp.Controllers.AppUserController",
-    "Method": "GetMe",
-    "RelativePath": "app-user/me",
+    "ContainingType": "smrp.Controllers.UserController",
+    "Method": "List",
+    "RelativePath": "api/users",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.UserController",
+    "Method": "SearchList",
+    "RelativePath": "api/users",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
