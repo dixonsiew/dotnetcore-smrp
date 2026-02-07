@@ -21,10 +21,10 @@ namespace smrp.Services
             return lx;
         }
 
-        public async Task<Role?> FindById(long id)
+        public async Task<Role?> FindByIdAsync(long id)
         {
             Role? role = null;
-            var q = await conn.QuerySingleOrDefaultAsync(@"select id, name from role where id = @id limit 1", new { id = id });
+            var q = await conn.QuerySingleOrDefaultAsync(@"select id, name from role where id = @id limit 1", new { id });
             if (q != null)
             {
                 role = Role.Single(q);
