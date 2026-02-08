@@ -5,6 +5,7 @@ using Npgsql;
 using Oracle.ManagedDataAccess.Client;
 using smrp;
 using smrp.Services;
+using smrp.Utils;
 using System.Data;
 using System.Text;
 
@@ -42,8 +43,7 @@ builder.Services.AddSwaggerGen(c =>
     //});
     c.OperationFilter<AuthorizationOperationFilter>();
 });
-builder.Services.AddScoped<IDbConnection>(x => new NpgsqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<IDbConnection>(x => new OracleConnection(builder.Configuration.GetConnectionString("RsConnection")));
+builder.Services.AddSingleton<IConnectionFactory, ConnectionFactory>();
 builder.Services.AddAuthentication(o =>
 {
     o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

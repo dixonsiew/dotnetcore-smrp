@@ -16,10 +16,8 @@ namespace smrp.Controllers
         private readonly RoleService roleService;
         private readonly IViewRenderService viewRenderService;
 
-        public UserController(IDbConnection con, IViewRenderService vs)
+        public UserController(IViewRenderService vs)
         {
-            userService = new UserService(con);
-            roleService = new RoleService(con);
             viewRenderService = vs;
         }
 

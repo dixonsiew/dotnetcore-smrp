@@ -14,10 +14,9 @@ namespace smrp.Controllers
         private readonly TokenService tokenService;
         private readonly UserService userService;
 
-        public AuthController(IConfiguration config, IDbConnection con)
+        public AuthController(IConfiguration config)
         {
             tokenService = new TokenService(config);
-            userService = new UserService(con);
         }
 
         [HttpPost("o/token")]
