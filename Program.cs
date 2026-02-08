@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using Npgsql;
+using Oracle.ManagedDataAccess.Client;
 using smrp;
 using smrp.Services;
 using System.Data;
@@ -42,6 +43,7 @@ builder.Services.AddSwaggerGen(c =>
     c.OperationFilter<AuthorizationOperationFilter>();
 });
 builder.Services.AddScoped<IDbConnection>(x => new NpgsqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IDbConnection>(x => new OracleConnection(builder.Configuration.GetConnectionString("RsConnection")));
 builder.Services.AddAuthentication(o =>
 {
     o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
