@@ -14,11 +14,21 @@ namespace smrp.Controllers
     {
         private readonly UserService userService;
         private readonly RoleService roleService;
+        private readonly IViewRenderService viewRenderService;
 
-        public UserController(IDbConnection con)
+        public UserController(IDbConnection con, IViewRenderService vs)
         {
             userService = new UserService(con);
             roleService = new RoleService(con);
+            viewRenderService = vs;
+        }
+
+        [HttpGet("test")]
+        public async Task<IResult> TestAsync()
+        {
+            var model = new { Name = "World", Message = "Welcome to our service!" };
+            var htmlContent = await viewRenderService.RenderViewToStringAsync("/Views/Index.cshtml", model);
+            return Results.Text(htmlContent);
         }
 
         [HttpGet("users")]

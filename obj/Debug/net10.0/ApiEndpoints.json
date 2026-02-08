@@ -27,6 +27,16 @@
   },
   {
     "ContainingType": "smrp.Controllers.UserController",
+    "Method": "TestAsync",
+    "RelativePath": "api/test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.UserController",
     "Method": "Create",
     "RelativePath": "api/user",
     "HttpMethod": "POST",

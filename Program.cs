@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using Npgsql;
 using smrp;
+using smrp.Services;
 using System.Data;
 using System.Text;
 
@@ -11,6 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IViewRenderService, ViewRenderService>();
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();

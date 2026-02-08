@@ -202,3 +202,5 @@ C:\learn\aspnet-core\dotnetcore-smrp\obj\Debug\net10.0\refint\smrp.dll
 C:\learn\aspnet-core\dotnetcore-smrp\obj\Debug\net10.0\smrp.pdb
 C:\learn\aspnet-core\dotnetcore-smrp\obj\Debug\net10.0\smrp.genruntimeconfig.cache
 C:\learn\aspnet-core\dotnetcore-smrp\obj\Debug\net10.0\ref\smrp.dll
+C:\learn\aspnet-core\dotnetcore-smrp\obj\Debug\net10.0\smrp.RazorAssemblyInfo.cache
+C:\learn\aspnet-core\dotnetcore-smrp\obj\Debug\net10.0\smrp.RazorAssemblyInfo.cs
