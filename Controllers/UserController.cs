@@ -26,9 +26,16 @@ namespace smrp.Controllers
         [HttpGet("test")]
         public async Task<IResult> TestAsync()
         {
-            var model = new { Name = "World", Message = "Welcome to our service!" };
-            var htmlContent = await viewRenderService.RenderViewToStringAsync("/Views/Index.cshtml", model);
-            return Results.Text(htmlContent);
+            var lx = new List<dynamic>
+            {
+                new { Name = "ken" },
+                new { Name = "june" }
+            };
+            var model = new { Name = "World", Addr = "Puchong", data = lx };
+            var s = Newtonsoft.Json.JsonConvert.SerializeObject(model, Newtonsoft.Json.Formatting.Indented);
+            //var s = await viewRenderService.RenderViewToStringAsync("/Views/Data.cshtml", model);
+            var bx = System.Text.Encoding.UTF8.GetBytes(s);
+            return Results.File(bx, "application/json", "data.json");
         }
 
         [HttpGet("users")]

@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet-core\\dotnetcore-smrp\\views\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:views\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet-core\\dotnetcore-smrp\\views\\data.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:views\\data.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet-core\\dotnetcore-smrp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,14 +35,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Views\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Index.cshtml",
-              "ToolTip": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Views\\Index.cshtml",
-              "RelativeToolTip": "Views\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Data.cshtml",
+              "DocumentMoniker": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Views\\Data.cshtml",
+              "RelativeDocumentMoniker": "Views\\Data.cshtml",
+              "ToolTip": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Views\\Data.cshtml",
+              "RelativeToolTip": "Views\\Data.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-08T06:05:18.672Z",
+              "WhenOpened": "2026-02-08T08:53:11.017Z",
               "EditorCaption": ""
             },
             {
@@ -88,9 +88,9 @@
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Controllers\\UserController.cs*",
-              "RelativeToolTip": "Controllers\\UserController.cs*",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAiwB4AAAAfAAAAAAAAAA==",
+              "ToolTip": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCIAAABqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-05T14:40:37.956Z",
               "EditorCaption": ""
