@@ -1,33 +1,30 @@
 ﻿using Npgsql;
+using Oracle.ManagedDataAccess.Client;
 using System.Data;
 
 namespace smrp.Utils
 {
-    public interface IConnectionFactory
+    public class DefaultConnection
     {
-        IDbConnection CreateDefaultConnection();
-        IDbConnection CreateRsConnection();
+        private readonly string connectionString;
+
+        public DefaultConnection(IConfiguration config)
+        {
+            connectionString = config.GetConnectionString("DefaultConnection") ?? "";
+        }
+
+        public IDbConnection CreateConnection() => new NpgsqlConnection(connectionString);
     }
 
-    public class ConnectionFactory : IConnectionFactory
+    public class RsConnection
     {
-        private readonly IConfiguration configuration;
+        private readonly string connectionString;
 
-        public ConnectionFactory(IConfiguration config)
+        public RsConnection(IConfiguration config)
         {
-            configuration = config;
+            connectionString = config.GetConnectionString("RsConnection") ?? "";
         }
 
-        public IDbConnection CreateDefaultConnection()
-        {
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
-            return new NpgsqlConnection(connectionString);
-        }
-
-        public IDbConnection CreateRsConnection()
-        {
-            var connectionString = configuration.GetConnectionString("RsConnection");
-            return new NpgsqlConnection(connectionString);
-        }
+        public IDbConnection CreateConnection() => new OracleConnection(connectionString);
     }
 }

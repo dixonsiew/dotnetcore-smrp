@@ -90,6 +90,65 @@
         ]
       }
     },
+    "/api/master-pd101/rpt1": {
+      "get": {
+        "tags": [
+          "MasterPD101"
+        ],
+        "parameters": [
+          {
+            "name": "_page",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "1"
+            }
+          },
+          {
+            "name": "_limit",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "20"
+            }
+          },
+          {
+            "name": "vt",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "0"
+            }
+          },
+          {
+            "name": "datefrom",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "dateto",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
+      }
+    },
     "/api/test": {
       "get": {
         "tags": [
@@ -370,6 +429,9 @@
   "tags": [
     {
       "name": "Auth"
+    },
+    {
+      "name": "MasterPD101"
     },
     {
       "name": "User"

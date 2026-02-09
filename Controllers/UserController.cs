@@ -16,9 +16,11 @@ namespace smrp.Controllers
         private readonly RoleService roleService;
         private readonly IViewRenderService viewRenderService;
 
-        public UserController(IViewRenderService vs)
+        public UserController(DefaultConnection conn, IViewRenderService vs)
         {
             viewRenderService = vs;
+            userService = new UserService(conn);
+            roleService = new RoleService(conn);
         }
 
         [HttpGet("test")]

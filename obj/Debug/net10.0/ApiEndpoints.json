@@ -26,6 +26,42 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
+    "Method": "List",
+    "RelativePath": "api/master-pd101/rpt1",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "datefrom",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dateto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "smrp.Controllers.UserController",
     "Method": "TestAsync",
     "RelativePath": "api/test",

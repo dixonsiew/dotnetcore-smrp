@@ -1,12 +1,11 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
-using Npgsql;
-using Oracle.ManagedDataAccess.Client;
+using MongoDB.Driver;
+using MongoDB.Driver.Core.Configuration;
 using smrp;
 using smrp.Services;
 using smrp.Utils;
-using System.Data;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -43,7 +42,9 @@ builder.Services.AddSwaggerGen(c =>
     //});
     c.OperationFilter<AuthorizationOperationFilter>();
 });
-builder.Services.AddSingleton<IConnectionFactory, ConnectionFactory>();
+builder.Services.AddScoped<DefaultConnection>();
+builder.Services.AddScoped<RsConnection>();
+builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetConnectionString("MongoDbConnection")));
 builder.Services.AddAuthentication(o =>
 {
     o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

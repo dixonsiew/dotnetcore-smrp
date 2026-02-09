@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using smrp.Dtos;
 using smrp.Services;
+using smrp.Utils;
 using System.Data;
 using System.Security.Claims;
 
@@ -14,9 +15,10 @@ namespace smrp.Controllers
         private readonly TokenService tokenService;
         private readonly UserService userService;
 
-        public AuthController(IConfiguration config)
+        public AuthController(DefaultConnection conn, IConfiguration config)
         {
             tokenService = new TokenService(config);
+            userService = new UserService(conn);
         }
 
         [HttpPost("o/token")]
