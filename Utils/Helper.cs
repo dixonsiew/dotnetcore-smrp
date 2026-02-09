@@ -1,11 +1,12 @@
 ﻿using MongoDB.Bson;
 using Swashbuckle.Swagger;
+using System.Text.RegularExpressions;
 
 namespace smrp.Utils
 {
     public class Helper
     {
-        public static string getDateStr(BsonValue? o)
+        public static string GetDateStr(BsonValue? o)
         {
             if (o == null)
             {
@@ -23,7 +24,7 @@ namespace smrp.Utils
             return a;
         }
 
-        public static List<BsonDocument> processDoc(List<BsonDocument> lx)
+        public static List<BsonDocument> ProcessDoc(List<BsonDocument> lx)
         {
             var ls = new List<BsonDocument>();
             const string na = "N/A";
@@ -32,25 +33,25 @@ namespace smrp.Utils
                 if (x.Contains("ADMISSION_DATE"))
                 {
                     var o = x["ADMISSION_DATE"];
-                    x["ADMISSION_DATE"] = getDateStr(o);
+                    x["ADMISSION_DATE"] = GetDateStr(o);
                 }
 
                 if (x.Contains("DISCHARGE_DATE"))
                 {
                     var o = x["DISCHARGE_DATE"];
-                    x["DISCHARGE_DATE"] = getDateStr(o);
+                    x["DISCHARGE_DATE"] = GetDateStr(o);
                 }
 
                 if (x.Contains("DEATH_DATE"))
                 {
                     var o = x["DEATH_DATE"];
-                    x["DEATH_DATE"] = getDateStr(o);
+                    x["DEATH_DATE"] = GetDateStr(o);
                 }
 
                 if (x.Contains("DELIVERY_DATE"))
                 {
                     var o = x["DELIVERY_DATE"];
-                    x["DELIVERY_DATE"] = getDateStr(o);
+                    x["DELIVERY_DATE"] = GetDateStr(o);
                 }
 
                 if (x.Contains("PATIENT_NOK_NAME"))
@@ -68,12 +69,12 @@ namespace smrp.Utils
 
                     else
                     {
-                        setValue(x, "NOK_STREET1", "STREET1");
-                        setValue(x, "NOK_STREET2", "STREET2");
-                        setValue(x, "NOK_CITYCODE", "CITYCODE");
-                        setValue(x, "NOK_POSTCODE", "POSTCODE");
-                        setValue(x, "NOK_OCITY", "OCITY");
-                        setValue(x, "NOK_NATIONALITY", "NATIONALITY");
+                        SetValue(x, "NOK_STREET1", "STREET1");
+                        SetValue(x, "NOK_STREET2", "STREET2");
+                        SetValue(x, "NOK_CITYCODE", "CITYCODE");
+                        SetValue(x, "NOK_POSTCODE", "POSTCODE");
+                        SetValue(x, "NOK_OCITY", "OCITY");
+                        SetValue(x, "NOK_NATIONALITY", "NATIONALITY");
                     }
                 }
 
@@ -93,7 +94,7 @@ namespace smrp.Utils
             return ls;
         }
 
-        public static void setValue(BsonDocument x, string ofield, string srcField)
+        public static void SetValue(BsonDocument x, string ofield, string srcField)
         {
             var v = x[srcField].AsString;
             if (x.Contains(ofield))
@@ -114,6 +115,22 @@ namespace smrp.Utils
             {
                 x[ofield] = "N/A";
             }
+        }
+
+        public static string GetStr(BsonValue x)
+        {
+            return x.AsString;
+        }
+
+        public static long GetNumber(string s)
+        {
+            return long.Parse(s); 
+        }
+
+        public static double GetNum(string s)
+        {
+            string r = Regex.Replace(s, @"[^\d.]*", string.Empty);
+            return double.Parse(r);
         }
     }
 }

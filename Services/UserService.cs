@@ -15,6 +15,24 @@ namespace smrp.Services
             ctx = c;
         }
 
+        public async Task GetX()
+        {
+            using var con = ctx.CreateConnection();
+            con.Open();
+            var q = await con.QueryAsync<dynamic>("select id, username, first_name, last_name, password, last_login from app_user");
+            foreach (var r in q)
+            {
+                var rowDictionary = (IDictionary<string, object>)r;
+                foreach (var property in rowDictionary)
+                {
+                    string columnName = property.Key;
+                    object columnValue = property.Value;
+                    Type columnType = columnValue.GetType();
+                    Console.WriteLine($"C# Type: {columnType?.Name ?? "NULL"}");
+                }
+            }
+        }
+
         public async Task<User?> FindByIdAsync(long id)
         {
             User? user = null;

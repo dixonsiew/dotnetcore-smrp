@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Amazon.Runtime.Internal.Transform;
+using Dapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using MongoDB.Driver.Core.Authentication;
+using smrp.Dtos;
 using smrp.Models;
 using smrp.Services;
+using smrp.sql;
 using smrp.Utils;
+using System;
 using System.Security.Claims;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace smrp.Controllers.Report
 {
@@ -15,12 +18,14 @@ namespace smrp.Controllers.Report
     [ApiController]
     public class MasterPD101Controller : ControllerBase
     {
+        private readonly DefaultConnection con;
         private readonly IConfiguration config;
         private readonly IMongoClient client;
         private readonly UserService userService;
 
         public MasterPD101Controller(DefaultConnection conn, IConfiguration cfg, IMongoClient cli)
         {
+            con = conn;
             config = cfg;
             client = cli;
             userService = new UserService(conn);
@@ -56,18 +61,19 @@ namespace smrp.Controllers.Report
             }
 
             string username = user.Username;
-            var db = getDb(client, vt);
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var db = GetDb(client, vt);
             var col = db.GetCollection<BsonDocument>($"__{username}__");
             var col2 = db.GetCollection<BsonDocument>($"__{username}-q__");
-            var total = await col.CountDocumentsAsync(new BsonDocument());
+            long total = await col.CountDocumentsAsync(new BsonDocument());
 
             string dateFrom = datefrom;
             string dateTo = dateto;
-            var t2 = await col2.CountDocumentsAsync(new BsonDocument());
+            long t2 = await col2.CountDocumentsAsync(filter);
             if (t2 > 0)
             {
                 List<BsonDocument>? ld;
-                using (var cur = await col2.FindAsync(new BsonDocument()))
+                using (var cur = await col2.FindAsync(filter))
                 {
                     ld = await cur.ToListAsync();
                     dateFrom = ld[0]["datefrom"].AsString;
@@ -77,11 +83,15 @@ namespace smrp.Controllers.Report
 
             var pg = new Pager(Convert.ToInt32(total), Convert.ToInt32(page), Convert.ToInt32(limit));
             List<BsonDocument> ls;
-            using (var cur = await col.FindAsync(new BsonDocument()))
+            var findOptions = new FindOptions<BsonDocument, BsonDocument>
+            {
+                Limit = pg.PageSize,
+                Skip = pg.LowerBound,
+            };
+            using (var cur = await col.FindAsync(filter, options: findOptions))
             {
                 var lx = await cur.ToListAsync();
-                lx = lx.Skip(pg.LowerBound).Take(pg.PageSize).ToList();
-                ls = Helper.processDoc(lx);
+                ls = Helper.ProcessDoc(lx);
             }
             return Results.Ok(new
             {
@@ -95,14 +105,14 @@ namespace smrp.Controllers.Report
             });
         }
 
-        private IMongoCollection<dynamic> getCollection(IMongoClient cli, string username, string vt)
+        private IMongoCollection<BsonDocument> GetCollection(IMongoClient cli, string username, string vt)
         {
-            var db = getDb(cli, vt);
+            var db = GetDb(cli, vt);
             var s = $"__{username}__";
-            return db.GetCollection<dynamic>(s);
+            return db.GetCollection<BsonDocument>(s);
         }
 
-        private IMongoDatabase getDb(IMongoClient cli, string vt)
+        private IMongoDatabase GetDb(IMongoClient cli, string vt)
         {
             string suffix = "";
             IMongoDatabase db;
@@ -124,6 +134,109 @@ namespace smrp.Controllers.Report
             }
 
             return db;
+        }
+
+        public async Task<Dictionary<string, object>> QueryAndSaveAsync(ReportQueryDto data, string username)
+        {
+            var page = data.Page;
+            var limit = data.Limit;
+            var vt = $"{data.Vt}";
+            var datefrom = data.DateFrom;
+            var dateto = data.DateTo;
+            var vs = "('INPATIENT')";
+            if (vt == "1")
+            {
+                vs = "('DAY-SURGERY')";
+            }
+
+            var qs = Sql.GetMasterPD101(vs);
+            using var conn = con.CreateConnection();
+            conn.Open();
+            var q = await conn.QueryAsync<dynamic>(qs, new { datefrom, dateto });
+            List<string> colnames = new List<string>();
+            List<BsonDocument> lx = new List<BsonDocument>();
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            int i = 0;
+            foreach (var r in q)
+            {
+                var rowDictionary = (IDictionary<string, object>)r;
+                var mx = new Dictionary<string, object>();
+                foreach (var property in rowDictionary)
+                {
+                    string columnName = property.Key;
+                    object columnValue = property.Value;
+                    Type columnType = columnValue.GetType();
+                    if (i == 0)
+                    {
+                        colnames.Add(columnName);
+                    }
+
+                    if (columnType.Name == "String")
+                    {
+                        mx.Add(columnName, columnValue.ToString() ?? "");
+                    }
+
+                    else if (columnType.Name.Contains("Int"))
+                    {
+                        mx.Add(columnName, Convert.ToInt64(columnValue));
+                    }
+
+                    else if (columnType.Name == "Double")
+                    {
+                        mx.Add(columnName, Convert.ToDouble(columnValue));
+                    }
+
+                    else if (columnType.Name == "Decimal")
+                    {
+                        mx.Add(columnName, Convert.ToDecimal(columnValue));
+                    }
+
+                    lx.Add(new BsonDocument(mx));
+                }
+                ++i;
+            }
+
+            List<BsonDocument> ld = new List<BsonDocument>();
+            var total = lx.Count;
+            var pg = new Pager(total, page, limit);
+
+            if (total > 0)
+            {
+                var dm = GetDb(client, vt);
+                var col = dm.GetCollection<BsonDocument>($"__{username}__");
+                await dm.DropCollectionAsync($"__{username}__");
+                await col.InsertManyAsync(lx);
+
+                await dm.DropCollectionAsync($"__{username}-c__");
+                var col1 = dm.GetCollection<BsonDocument>($"__{username}-c__");
+                var doc1 = new BsonDocument(new Dictionary<string, object> { { "columns", colnames } });
+                await col1.InsertOneAsync(doc1);
+
+                await dm.DropCollectionAsync($"__{username}-q__");
+                var col2 = dm.GetCollection<BsonDocument>($"__{username}-q__");
+                var doc2 = new BsonDocument(new Dictionary<string, object> { { "datefrom", datefrom }, { "dateto", dateto } });
+                await col2.InsertOneAsync(doc2);
+
+                var findOptions = new FindOptions<BsonDocument, BsonDocument>
+                {
+                    Limit = pg.PageSize,
+                    Skip = pg.LowerBound,
+                };
+                using (var cur = await col.FindAsync(filter, options: findOptions))
+                {
+                    var lv = await cur.ToListAsync();
+                    ld = Helper.ProcessDoc(lv);
+                }
+            }
+
+            return new Dictionary<string, object>()
+            {
+                { "columnmaps", RptColMap.COLUMN_MAP },
+                { "total_count", total },
+                { "total_page", pg.TotalPages },
+                { "page", pg.PageNum },
+                { "data", ld }
+            };
         }
     }
 }

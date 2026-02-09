@@ -128,7 +128,7 @@
             --and doc.document_type is not null
             --AND NV.DISCHARGE_DOCTOR = TRIM(DOC_CODE.DOCTOR_TITLE_NAME)
             AND NV.VISIT_TYPE IN {visitType}
-            AND NV.ADMISSION_DATE BETWEEN TO_DATE(:1, 'YYYY-MM-DD') AND TO_DATE(:2, 'YYYY-MM-DD')
+            AND NV.ADMISSION_DATE BETWEEN TO_DATE(:datefrom, 'YYYY-MM-DD') AND TO_DATE(:dateto, 'YYYY-MM-DD')
             --and doc.document_type not in ('PRN-System Generated')
             --and doc.document_type in ('Birth Cert','Passport','NRIC/PP/BC','New IC')
             ORDER BY ADMISSION_DATE, ADMISSION_TIME";

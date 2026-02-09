@@ -27,6 +27,37 @@
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
+    "Method": "QueryAndSaveAsync",
+    "RelativePath": "api/master-pd101",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.ReportQueryDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
     "Method": "List",
     "RelativePath": "api/master-pd101/rpt1",
     "HttpMethod": "GET",
