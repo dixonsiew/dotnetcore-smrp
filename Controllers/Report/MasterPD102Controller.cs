@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using smrp.Controllers.Report.MasterPD101;
+using smrp.Controllers.Report.MasterPD102;
 using smrp.Dtos;
 using smrp.Models;
 using smrp.Services;
@@ -13,16 +13,16 @@ using System.Security.Claims;
 
 namespace smrp.Controllers.Report
 {
-    [Route("api/master-pd101")]
+    [Route("api/master-pd102")]
     [ApiController]
-    public class MasterPD101Controller : ControllerBase
+    public class MasterPD102Controller : ControllerBase
     {
         private readonly RsConnection rscon;
         private readonly IConfiguration config;
         private readonly IMongoClient client;
         private readonly UserService userService;
 
-        public MasterPD101Controller(DefaultConnection conn, RsConnection rsconn, IConfiguration cfg, IMongoClient cli)
+        public MasterPD102Controller(DefaultConnection conn, RsConnection rsconn, IConfiguration cfg, IMongoClient cli)
         {
             rscon = rsconn;
             config = cfg;
@@ -61,7 +61,7 @@ namespace smrp.Controllers.Report
 
             string username = user.Username;
             var filter = Builders<BsonDocument>.Filter.Empty;
-            var db = GetDb(client, vt);
+            var db = GetDb(client);
             var col = db.GetCollection<BsonDocument>($"__{username}__");
             var col2 = db.GetCollection<BsonDocument>($"__{username}-q__");
             long total = await col.CountDocumentsAsync(new BsonDocument());
@@ -131,12 +131,12 @@ namespace smrp.Controllers.Report
 
         private IMongoCollection<BsonDocument> GetCollection(IMongoClient cli, string username, string vt)
         {
-            var db = GetDb(cli, vt);
+            var db = GetDb(cli);
             var s = $"__{username}__";
             return db.GetCollection<BsonDocument>(s);
         }
 
-        private IMongoDatabase GetDb(IMongoClient cli, string vt)
+        private IMongoDatabase GetDb(IMongoClient cli)
         {
             string suffix = "";
             IMongoDatabase db;
@@ -145,18 +145,8 @@ namespace smrp.Controllers.Report
                 suffix = "_prod";
             }
 
-            if (vt == "0")
-            {
-                var s = $"master_pd101{suffix}";
-                db = cli.GetDatabase(s);
-            }
-
-            else
-            {
-                var s = $"master_rh101{suffix}";
-                db = cli.GetDatabase(s);
-            }
-
+            var s = $"master_pd102{suffix}";
+            db = cli.GetDatabase(s);
             return db;
         }
 
@@ -167,13 +157,13 @@ namespace smrp.Controllers.Report
             var vt = $"{data.Vt}";
             var datefrom = data.DateFrom;
             var dateto = data.DateTo;
-            var vs = "('INPATIENT')";
-            if (vt == "1")
-            {
-                vs = "('DAY-SURGERY')";
-            }
+            //var vs = "('INPATIENT')";
+            //if (vt == "1")
+            //{
+            //    vs = "('DAY-SURGERY')";
+            //}
 
-            var qs = Sql.GetMasterPD101(vs);
+            var qs = Sql.GetMasterPD102();
             using var conn = rscon.CreateConnection();
             conn.Open();
             var q = await conn.QueryAsync<dynamic>(qs, new { datefrom, dateto });
@@ -215,6 +205,11 @@ namespace smrp.Controllers.Report
                         mx.Add(columnName, Convert.ToDecimal(columnValue));
                     }
 
+                    else if (columnType.Name == "DateTime")
+                    {
+                        mx.Add(columnName, Convert.ToDateTime(columnValue));
+                    }
+
                     else
                     {
                         mx.Add(columnName, columnValue);
@@ -230,7 +225,7 @@ namespace smrp.Controllers.Report
 
             if (total > 0)
             {
-                var dm = GetDb(client, vt);
+                var dm = GetDb(client);
                 await dm.DropCollectionAsync($"__{username}__");
                 var col = dm.GetCollection<BsonDocument>($"__{username}__");
                 await col.InsertManyAsync(lx);

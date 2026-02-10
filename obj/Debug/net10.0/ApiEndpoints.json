@@ -27,37 +27,6 @@
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
-    "Method": "QueryAndSaveAsync",
-    "RelativePath": "api/master-pd101",
-    "HttpMethod": "",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "data",
-        "Type": "smrp.Dtos.ReportQueryDto",
-        "IsRequired": true
-      },
-      {
-        "Name": "username",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
     "Method": "List",
     "RelativePath": "api/master-pd101/rpt1",
     "HttpMethod": "GET",
@@ -88,6 +57,74 @@
         "Name": "dateto",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
+    "Method": "SearchList",
+    "RelativePath": "api/master-pd101/rpt1",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.ReportQueryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD102Controller",
+    "Method": "List",
+    "RelativePath": "api/master-pd102/rpt1",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "datefrom",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dateto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD102Controller",
+    "Method": "SearchList",
+    "RelativePath": "api/master-pd102/rpt1",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.ReportQueryDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

@@ -342,7 +342,7 @@
                 NP.PRN = NV.PRN(+)
                 AND REGISTRATION_DATE IS NOT NULL
                 AND NV.VISIT_TYPE IN {visitType}
-                AND NV.DISCHARGE_DATE BETWEEN TO_DATE(:1, 'YYYY-MM-DD') AND TO_DATE(:2, 'YYYY-MM-DD')
+                AND NV.DISCHARGE_DATE BETWEEN TO_DATE(:datefrom, 'YYYY-MM-DD') AND TO_DATE(:dateto, 'YYYY-MM-DD')
                 --AND NV.VISIT_TYPE IN ('INPATIENT')
                 --AND NV.DISCHARGE_DATE BETWEEN TO_DATE('2021-01-01', 'YYYY-MM-DD') AND TO_DATE('2021-09-17', 'YYYY-MM-DD')
                 --and nv.discharge_doctor in (select distinct trim (doctor_title_name) from DOC_GRADE_CODE)
@@ -579,7 +579,7 @@
                 AND NP.GENDER = 'FEMALE' 
                 AND NV.PRN = NP.PRN (+)
                 AND NV.VISIT_TYPE = 'INPATIENT' 
-                AND NV.DELIVERY_DATE BETWEEN TO_DATE(:1, 'YYYY-MM-DD') AND TO_DATE(:2, 'YYYY-MM-DD') 
+                AND NV.DELIVERY_DATE BETWEEN TO_DATE(:datefrom, 'YYYY-MM-DD') AND TO_DATE(:dateto, 'YYYY-MM-DD') 
                 ORDER BY NV.ACCOUNT_NO ASC";
             return s;
         }
@@ -651,7 +651,7 @@
                 AND (NV.PRN, NV.DISCHARGE_DATE) IN (
                     SELECT PRN, MAX(DISCHARGE_DATE) FROM PD105_NV GROUP BY PRN
                 )
-	            AND PAT.DEATH_DATE BETWEEN TO_DATE(:1, 'YYYY-MM-DD') AND TO_DATE(:2, 'YYYY-MM-DD') 
+	            AND PAT.DEATH_DATE BETWEEN TO_DATE(:datefrom, 'YYYY-MM-DD') AND TO_DATE(:dateto, 'YYYY-MM-DD') 
                 ORDER BY PAT.DEATH_DATE ASC";
             return s;
         }

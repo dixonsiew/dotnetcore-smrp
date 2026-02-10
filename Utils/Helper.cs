@@ -30,6 +30,8 @@ namespace smrp.Utils
             const string na = "N/A";
             foreach (var x in lx)
             {
+                var d = x["_id"].AsObjectId;
+                x["_id"] = d.ToString();
                 if (x.Contains("ADMISSION_DATE"))
                 {
                     var o = x["ADMISSION_DATE"];
