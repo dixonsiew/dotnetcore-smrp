@@ -179,12 +179,20 @@ namespace smrp.Controllers.Report
                 {
                     string columnName = property.Key;
                     object columnValue = property.Value;
-                    Type columnType = columnValue.GetType();
+
                     if (i == 0)
                     {
                         colnames.Add(columnName);
                     }
 
+                    if (columnValue == null)
+                    {
+                        mx.Add(columnName, "");
+                        ++i;
+                        continue;
+                    }
+
+                    Type columnType = columnValue.GetType();
                     if (columnType.Name == "String")
                     {
                         mx.Add(columnName, columnValue.ToString() ?? "");
@@ -202,17 +210,17 @@ namespace smrp.Controllers.Report
 
                     else if (columnType.Name == "Decimal")
                     {
-                        mx.Add(columnName, Convert.ToDecimal(columnValue));
+                        mx.Add(columnName, ((long)Convert.ToDecimal(columnValue)));
                     }
 
                     else if (columnType.Name == "DateTime")
                     {
-                        mx.Add(columnName, Convert.ToDateTime(columnValue));
+                        mx.Add(columnName, columnValue.ToString() ?? "");
                     }
 
                     else
                     {
-                        mx.Add(columnName, columnValue);
+                        mx.Add(columnName, columnValue.ToString() ?? "");
                     }
                 }
                 ++i;

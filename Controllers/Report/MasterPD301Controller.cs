@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using smrp.Controllers.Report.MasterPD101;
+using smrp.Controllers.Report.MasterPD301;
 using smrp.Dtos;
 using smrp.Models;
 using smrp.Services;
@@ -13,16 +13,16 @@ using System.Security.Claims;
 
 namespace smrp.Controllers.Report
 {
-    [Route("api/master-pd101")]
+    [Route("api/master-pd301")]
     [ApiController]
-    public class MasterPD101Controller : ControllerBase
+    public class MasterPD301Controller : ControllerBase
     {
         private readonly RsConnection rscon;
         private readonly IConfiguration config;
         private readonly IMongoClient client;
         private readonly UserService userService;
 
-        public MasterPD101Controller(DefaultConnection conn, RsConnection rsconn, IConfiguration cfg, IMongoClient cli)
+        public MasterPD301Controller(DefaultConnection conn, RsConnection rsconn, IConfiguration cfg, IMongoClient cli)
         {
             rscon = rsconn;
             config = cfg;
@@ -129,6 +129,49 @@ namespace smrp.Controllers.Report
             return Results.Ok(md);
         }
 
+        [HttpGet("rpt1/{id}")]
+        [Authorize]
+        public async Task<IResult> Edit(string id, [FromQuery(Name = "vt")] string vt = "0")
+        {
+            IResult res = Results.Json(new
+            {
+                statusCode = StatusCodes.Status404NotFound,
+                message = "User not found",
+            }, statusCode: StatusCodes.Status404NotFound);
+
+            var userClaimsPrincipal = User;
+            var userId = userClaimsPrincipal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+            {
+                return res;
+            }
+
+            int uid = Convert.ToInt32(userId);
+            var user = await userService.FindByIdAsync(uid);
+            if (user == null)
+            {
+                return res;
+            }
+
+            string username = user.Username;
+            var col = GetCollection(client, username, vt);
+            var objectId = new ObjectId(id);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", objectId);
+            var lx = await col.Find(filter).ToListAsync();
+            var ls = Helper.ProcessDoc(lx);
+
+            if (ls.Count > 0)
+            {
+                return Results.Ok(ls[0].ToDictionary());
+            }
+
+            return Results.Json(new
+            {
+                statusCode = StatusCodes.Status404NotFound,
+                message = "Record not found",
+            }, statusCode: StatusCodes.Status404NotFound);
+        }
+
         private IMongoCollection<BsonDocument> GetCollection(IMongoClient cli, string username, string vt)
         {
             var db = GetDb(cli, vt);
@@ -147,13 +190,13 @@ namespace smrp.Controllers.Report
 
             if (vt == "0")
             {
-                var s = $"master_pd101{suffix}";
+                var s = $"master_pd301{suffix}";
                 db = cli.GetDatabase(s);
             }
 
             else
             {
-                var s = $"master_rh101{suffix}";
+                var s = $"master_rh301{suffix}";
                 db = cli.GetDatabase(s);
             }
 
@@ -173,7 +216,7 @@ namespace smrp.Controllers.Report
                 vs = "('DAY-SURGERY')";
             }
 
-            var qs = Sql.GetMasterPD101(vs);
+            var qs = Sql.GetMasterPD301(vs);
             using var conn = rscon.CreateConnection();
             conn.Open();
             var q = await conn.QueryAsync<dynamic>(qs, new { datefrom, dateto });
@@ -203,11 +246,6 @@ namespace smrp.Controllers.Report
                     }
 
                     Type columnType = columnValue.GetType();
-                    if (i == 0)
-                    {
-                        colnames.Add(columnName);
-                    }
-
                     if (columnType.Name == "String")
                     {
                         mx.Add(columnName, columnValue.ToString() ?? "");

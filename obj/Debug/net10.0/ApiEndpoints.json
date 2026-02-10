@@ -130,6 +130,131 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "smrp.Controllers.Report.MasterPD105Controller",
+    "Method": "List",
+    "RelativePath": "api/master-pd105/rpt1",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "datefrom",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dateto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD105Controller",
+    "Method": "SearchList",
+    "RelativePath": "api/master-pd105/rpt1",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.ReportQueryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD301Controller",
+    "Method": "List",
+    "RelativePath": "api/master-pd301/rpt1",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "datefrom",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dateto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD301Controller",
+    "Method": "SearchList",
+    "RelativePath": "api/master-pd301/rpt1",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.ReportQueryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD301Controller",
+    "Method": "EditAsync",
+    "RelativePath": "api/master-pd301/rpt1/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "vt",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "smrp.Controllers.UserController",
     "Method": "TestAsync",
     "RelativePath": "api/test",

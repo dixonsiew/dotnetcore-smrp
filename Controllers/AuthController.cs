@@ -75,8 +75,6 @@ namespace smrp.Controllers
                 return res;
             }
 
-            await userService.GetX();
-
             return Results.Ok(new
             {
                 id = user.Id,
