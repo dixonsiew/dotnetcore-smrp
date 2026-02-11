@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using Amazon.Runtime.Internal.Transform;
+using Dapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
@@ -10,6 +11,7 @@ using smrp.Services;
 using smrp.sql;
 using smrp.Utils;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace smrp.Controllers.Report
 {
@@ -21,6 +23,8 @@ namespace smrp.Controllers.Report
         private readonly IConfiguration config;
         private readonly IMongoClient client;
         private readonly UserService userService;
+        private readonly CommonSetupService commonSetupService;
+        private readonly ReportService reportService;
 
         public MasterPD101Controller(DefaultConnection conn, RsConnection rsconn, IConfiguration cfg, IMongoClient cli)
         {
@@ -28,6 +32,51 @@ namespace smrp.Controllers.Report
             config = cfg;
             client = cli;
             userService = new UserService(conn);
+            commonSetupService = new CommonSetupService(conn);
+            reportService = new ReportService(conn, commonSetupService);
+        }
+
+        [HttpGet("export/rpt1")]
+        [Authorize]
+        public async Task<IResult> JsonPD101(
+            [FromQuery(Name = "datefrom")] string datefrom = "",
+            [FromQuery(Name = "dateto")] string dateto = "")
+        {
+            IResult res = Results.Json(new
+            {
+                statusCode = StatusCodes.Status404NotFound,
+                message = "User not found",
+            }, statusCode: StatusCodes.Status404NotFound);
+
+            var userClaimsPrincipal = User;
+            var username = userClaimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
+            if (username == null)
+            {
+                return res;
+            }
+
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var col = GetCollection(client, username, "0");
+            var lx = await col.Find(filter).ToListAsync();
+            var ls = Helper.ProcessDoc(lx);
+
+            var dt1 = datefrom.Split("-");
+            var dt2 = datefrom.Split("-");
+            var ds1 = $"{dt1[2]}{dt1[1]}{dt1[0]}";
+            var ds2 = $"{dt2[2]}{dt2[1]}{dt2[0]}";
+
+            var forms = new Dictionary<string, object>();
+            foreach (var d in ls)
+            {
+                var person = new Dictionary<string, object>()
+                {
+                    { "refPersonTitleCode", await reportService.RefPersonTitleCode(d) },
+                    { "fullName", Helper.GetStr(d["PATIENT_NAME"]) },
+                    { "refIdentificationTypeCode", await reportService.RefIdentificationTypeCode(d) },
+                    { "identificationNo", Helper.GetStr(d["DOCUMENT_NUMBER"]) },
+
+                };
+            }
         }
 
         [HttpGet("rpt1")]
