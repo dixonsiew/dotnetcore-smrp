@@ -86,7 +86,7 @@ namespace smrp.Services
             List<User> lx = new List<User>();
             using var conn = ctx.CreateConnection();
             conn.Open();
-            var q = await conn.QueryAsync(@$"select t.id, t.username, t.first_name, t.last_name, t.password, t.last_login from app_user t where (t.username ilike @keyword or t.first_name ilike @keyword or t.last_name ilike @keyword) order by {sortBy} {sortDir} offset @offset limit @limit", new { keyword = keyword, offset = offset, limit = limit });
+            var q = await conn.QueryAsync(@$"select t.id, t.username, t.first_name, t.last_name, t.password, t.last_login from app_user t where (t.username ilike @keyword or t.first_name ilike @keyword or t.last_name ilike @keyword) order by {sortBy} {sortDir} offset @offset limit @limit", new { keyword, offset, limit });
             lx = await User.ListAsync(q, conn);
 
             return lx;
@@ -96,7 +96,7 @@ namespace smrp.Services
         {
             using var conn = ctx.CreateConnection();
             conn.Open();
-            int q = await conn.ExecuteScalarAsync<int>(@"select count(id) from app_user t where (t.username ilike @keyword or t.first_name ilike @keyword or t.last_name ilike @keyword)", new { keyword = keyword });
+            int q = await conn.ExecuteScalarAsync<int>(@"select count(id) from app_user t where (t.username ilike @keyword or t.first_name ilike @keyword or t.last_name ilike @keyword)", new { keyword });
 
             return q;
         }
