@@ -26,6 +26,7 @@ namespace smrp.Services
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Username),
+                new Claim(ClaimTypes.Name, user.Username),
             };
             var token = new JwtSecurityToken(
                 issuer: config["Jwt:Issuer"],
@@ -46,6 +47,7 @@ namespace smrp.Services
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Username),
+                new Claim(ClaimTypes.Name, user.Username),
             };
             var token = new JwtSecurityToken(
                 issuer: config["Jwt:Issuer"],

@@ -1,6 +1,5 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -47,20 +46,12 @@ namespace smrp.Controllers.Report
             }, statusCode: StatusCodes.Status404NotFound);
 
             var userClaimsPrincipal = User;
-            var userId = userClaimsPrincipal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (userId == null)
+            var username = userClaimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
+            if (username == null)
             {
                 return res;
             }
 
-            int id = Convert.ToInt32(userId);
-            var user = await userService.FindByIdAsync(id);
-            if (user == null)
-            {
-                return res;
-            }
-
-            string username = user.Username;
             var filter = Builders<BsonDocument>.Filter.Empty;
             var db = GetDb(client);
             var col = db.GetCollection<BsonDocument>($"__{username}__");
@@ -80,15 +71,8 @@ namespace smrp.Controllers.Report
             }
 
             var pg = new Pager(Convert.ToInt32(total), Convert.ToInt32(page), Convert.ToInt32(limit));
-            List<BsonDocument> ls;
-            var findOptions = new FindOptions<BsonDocument, BsonDocument>
-            {
-                Limit = pg.PageSize,
-                Skip = pg.LowerBound,
-            };
-            using var cur = await col.FindAsync(filter, options: findOptions);
-            var lx = await cur.ToListAsync();
-            ls = Helper.ProcessDoc(lx);
+            var lx = await col.Find(filter).Skip(pg.LowerBound).Limit(pg.PageSize).ToListAsync();
+            var ls = Helper.ProcessDoc(lx);
             return Results.Ok(new
             {
                 columnmaps = RptColMap.COLUMN_MAP,
@@ -112,20 +96,12 @@ namespace smrp.Controllers.Report
             }, statusCode: StatusCodes.Status404NotFound);
 
             var userClaimsPrincipal = User;
-            var userId = userClaimsPrincipal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (userId == null)
+            var username = userClaimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
+            if (username == null)
             {
                 return res;
             }
 
-            int id = Convert.ToInt32(userId);
-            var user = await userService.FindByIdAsync(id);
-            if (user == null)
-            {
-                return res;
-            }
-
-            string username = user.Username;
             var md = await QueryAndSaveAsync(data, username);
             return Results.Ok(md);
         }
@@ -211,7 +187,7 @@ namespace smrp.Controllers.Report
 
                     else if (columnType.Name == "Decimal")
                     {
-                        mx.Add(columnName, ((long)Convert.ToDecimal(columnValue)));
+                        mx.Add(columnName, Convert.ToDouble(columnValue));
                     }
 
                     else if (columnType.Name == "DateTime")
@@ -249,13 +225,7 @@ namespace smrp.Controllers.Report
                 var doc2 = new BsonDocument(new Dictionary<string, object> { { "datefrom", datefrom }, { "dateto", dateto } });
                 await col2.InsertOneAsync(doc2);
 
-                var findOptions = new FindOptions<BsonDocument, BsonDocument>
-                {
-                    Limit = pg.PageSize,
-                    Skip = pg.LowerBound,
-                };
-                using var cur = await col.FindAsync(filter, options: findOptions);
-                var lv = await cur.ToListAsync();
+                var lv = await col.Find(filter).Skip(pg.LowerBound).Limit(pg.PageSize).ToListAsync();
                 ld = Helper.ProcessDoc(lv);
             }
 

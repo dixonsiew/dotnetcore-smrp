@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using smrp.Dtos;
 using smrp.Services;
 using smrp.Utils;
-using System.Data;
 using System.Security.Claims;
 
 namespace smrp.Controllers

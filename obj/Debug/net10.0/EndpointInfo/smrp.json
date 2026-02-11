@@ -369,41 +369,6 @@
         ]
       }
     },
-    "/api/master-pd301/rpt1/{id}": {
-      "get": {
-        "tags": [
-          "MasterPD301"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "vt",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "0"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [ ]
-          }
-        ]
-      }
-    },
     "/api/master-pd301/rpt1": {
       "get": {
         "tags": [
@@ -485,6 +450,41 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/master-pd301/rpt1/{id}": {
+      "get": {
+        "tags": [
+          "MasterPD301"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vt",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "0"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"

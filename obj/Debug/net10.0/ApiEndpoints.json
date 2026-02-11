@@ -235,7 +235,7 @@
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD301Controller",
-    "Method": "EditAsync",
+    "Method": "Edit",
     "RelativePath": "api/master-pd301/rpt1/{id}",
     "HttpMethod": "GET",
     "IsController": true,
