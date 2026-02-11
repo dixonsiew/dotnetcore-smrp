@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\controllers\\report\\masterpd105controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:controllers\\report\\masterpd105controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\services\\commonsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:services\\commonsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\models\\commonsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:models\\commonsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\controllers\\report\\masterpd101controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:controllers\\report\\masterpd101controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\controllers\\report\\masterpd102controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:controllers\\report\\masterpd102controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\controllers\\report\\masterpd301controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:controllers\\report\\masterpd301controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\utils\\helper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,71 +34,85 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MasterPD102Controller.cs",
-              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\Report\\MasterPD102Controller.cs",
-              "RelativeDocumentMoniker": "Controllers\\Report\\MasterPD102Controller.cs",
-              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\Report\\MasterPD102Controller.cs*",
-              "RelativeToolTip": "Controllers\\Report\\MasterPD102Controller.cs*",
-              "ViewState": "AgIAADYAAAAAAAAAAAAYwEEAAAA/AAAAAAAAAA==",
+              "Title": "CommonSetup.cs",
+              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Models\\CommonSetup.cs",
+              "RelativeDocumentMoniker": "Models\\CommonSetup.cs",
+              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Models\\CommonSetup.cs",
+              "RelativeToolTip": "Models\\CommonSetup.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAuwDcAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T03:02:56.826Z",
+              "WhenOpened": "2026-02-11T09:45:07.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T09:23:09.012Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MasterPD105Controller.cs",
-              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\Report\\MasterPD105Controller.cs",
-              "RelativeDocumentMoniker": "Controllers\\Report\\MasterPD105Controller.cs",
-              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\Report\\MasterPD105Controller.cs",
-              "RelativeToolTip": "Controllers\\Report\\MasterPD105Controller.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOMAAABlAAAAAAAAAA==",
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Services\\UserService.cs",
+              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Services\\UserService.cs",
+              "RelativeToolTip": "Services\\UserService.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAswE4AAACJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T03:01:56.383Z",
+              "WhenOpened": "2026-02-11T09:21:17.578Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "CommonSetup.cs",
+              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Services\\CommonSetup.cs",
+              "RelativeDocumentMoniker": "Services\\CommonSetup.cs",
+              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Services\\CommonSetup.cs",
+              "RelativeToolTip": "Services\\CommonSetup.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAowDQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T09:21:08.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MasterPD101Controller.cs",
               "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\Report\\MasterPD101Controller.cs",
               "RelativeDocumentMoniker": "Controllers\\Report\\MasterPD101Controller.cs",
               "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\Report\\MasterPD101Controller.cs",
               "RelativeToolTip": "Controllers\\Report\\MasterPD101Controller.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAYwO8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADEAAAAAAAAAAAAYwK4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-10T15:47:34.905Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MasterPD301Controller.cs",
-              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\Report\\MasterPD301Controller.cs",
-              "RelativeDocumentMoniker": "Controllers\\Report\\MasterPD301Controller.cs",
-              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\Report\\MasterPD301Controller.cs",
-              "RelativeToolTip": "Controllers\\Report\\MasterPD301Controller.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOkAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T15:44:23.183Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Helper.cs",
               "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Utils\\Helper.cs",
               "RelativeDocumentMoniker": "Utils\\Helper.cs",
               "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Utils\\Helper.cs",
               "RelativeToolTip": "Utils\\Helper.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAawCEAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAowIkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T13:05:46.428Z"
+              "WhenOpened": "2026-02-09T13:05:46.428Z",
+              "EditorCaption": ""
             }
           ]
         }

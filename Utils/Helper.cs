@@ -134,5 +134,45 @@ namespace smrp.Utils
             string r = Regex.Replace(s, @"[^\d.]*", string.Empty);
             return double.Parse(r);
         }
+
+        public static void GetDataMap(Dictionary<string, object> mx, string columnName, object columnValue)
+        {
+            if (columnValue == null)
+            {
+                mx.Add(columnName, "");
+                return;
+            }
+
+            Type columnType = columnValue.GetType();
+            if (columnType.Name == "String")
+            {
+                mx.Add(columnName, columnValue.ToString() ?? "");
+            }
+
+            else if (columnType.Name.Contains("Int"))
+            {
+                mx.Add(columnName, Convert.ToInt64(columnValue));
+            }
+
+            else if (columnType.Name == "Double")
+            {
+                mx.Add(columnName, Convert.ToDouble(columnValue));
+            }
+
+            else if (columnType.Name == "Decimal")
+            {
+                mx.Add(columnName, ((long)Convert.ToDecimal(columnValue)));
+            }
+
+            else if (columnType.Name == "DateTime")
+            {
+                mx.Add(columnName, columnValue.ToString() ?? "");
+            }
+
+            else
+            {
+                mx.Add(columnName, columnValue.ToString() ?? "");
+            }
+        }
     }
 }

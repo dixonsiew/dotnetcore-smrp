@@ -140,6 +140,41 @@ namespace smrp.Controllers.Report
             }, statusCode: StatusCodes.Status404NotFound);
         }
 
+        [HttpPost("rpt1/{id}")]
+        [Authorize]
+        public async Task<IResult> Update(Dictionary<string, object> data, string id, [FromQuery(Name = "vt")] string vt = "0")
+        {
+            IResult res = Results.Json(new
+            {
+                statusCode = StatusCodes.Status404NotFound,
+                message = "User not found",
+            }, statusCode: StatusCodes.Status404NotFound);
+
+            var userClaimsPrincipal = User;
+            var username = userClaimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
+            if (username == null)
+            {
+                return res;
+            }
+
+            var col = GetCollection(client, username, vt);
+            var objectId = new ObjectId(id);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", objectId);
+            var update = Builders<BsonDocument>.Update;
+            var updateDefinitions = new List<UpdateDefinition<BsonDocument>>();
+            foreach (var kvp in data)
+            {
+                updateDefinitions.Add(update.Set(kvp.Key, kvp.Value));
+            }
+
+            var combinedUpdate = Builders<BsonDocument>.Update.Combine(updateDefinitions);
+            await col.FindOneAndUpdateAsync(filter, combinedUpdate);
+            return Results.Ok(new
+            {
+                success = 1,
+            });
+        }
+
         private IMongoCollection<BsonDocument> GetCollection(IMongoClient cli, string username, string vt)
         {
             var db = GetDb(cli, vt);
@@ -206,43 +241,7 @@ namespace smrp.Controllers.Report
                         colnames.Add(columnName);
                     }
 
-                    if (columnValue == null)
-                    {
-                        mx.Add(columnName, "");
-                        ++i;
-                        continue;
-                    }
-
-                    Type columnType = columnValue.GetType();
-                    if (columnType.Name == "String")
-                    {
-                        mx.Add(columnName, columnValue.ToString() ?? "");
-                    }
-
-                    else if (columnType.Name.Contains("Int"))
-                    {
-                        mx.Add(columnName, Convert.ToInt64(columnValue));
-                    }
-
-                    else if (columnType.Name == "Double")
-                    {
-                        mx.Add(columnName, Convert.ToDouble(columnValue));
-                    }
-
-                    else if (columnType.Name == "Decimal")
-                    {
-                        mx.Add(columnName, Convert.ToDouble(columnValue));
-                    }
-
-                    else if (columnType.Name == "DateTime")
-                    {
-                        mx.Add(columnName, columnValue.ToString() ?? "");
-                    }
-
-                    else
-                    {
-                        mx.Add(columnName, columnValue.ToString() ?? "");
-                    }
+                    Helper.GetDataMap(mx, columnName, columnValue);
                 }
                 ++i;
                 lx.Add(new BsonDocument(mx));

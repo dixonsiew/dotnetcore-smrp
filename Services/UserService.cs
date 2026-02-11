@@ -20,7 +20,7 @@ namespace smrp.Services
             User? user = null;
             using var conn = ctx.CreateConnection();
             conn.Open();
-            var q = await conn.QuerySingleOrDefaultAsync(@"select id, username, first_name, last_name, password, last_login from app_user where id = @id limit 1", new { id = id });
+            var q = await conn.QuerySingleOrDefaultAsync(@"select id, username, first_name, last_name, password, last_login from app_user where id = @id limit 1", new { id });
             if (q != null)
             {
                 user = await User.SingleAsync(q, conn);
@@ -34,7 +34,7 @@ namespace smrp.Services
             User? user = null;
             using var conn = ctx.CreateConnection();
             conn.Open();
-            var q = await conn.QuerySingleOrDefaultAsync(@"select id, username, first_name, last_name, password, last_login from app_user where username = @username limit 1", new { username = username });
+            var q = await conn.QuerySingleOrDefaultAsync(@"select id, username, first_name, last_name, password, last_login from app_user where username = @username limit 1", new { username });
             if (q != null)
             {
                 user = await User.SingleAsync(q, conn);
@@ -48,7 +48,7 @@ namespace smrp.Services
             List<User> lx = new List<User>();
             using var conn = ctx.CreateConnection();
             conn.Open();
-            var q = await conn.QueryAsync(@$"select t.id, t.username, t.first_name, t.last_name, t.password, t.last_login from app_user t order by {sortBy} {sortDir} offset @offset limit @limit", new { offset = offset, limit = limit });
+            var q = await conn.QueryAsync(@$"select t.id, t.username, t.first_name, t.last_name, t.password, t.last_login from app_user t order by {sortBy} {sortDir} offset @offset limit @limit", new { offset, limit });
             lx = User.List(q, conn);
             
             return lx;
@@ -67,7 +67,7 @@ namespace smrp.Services
         {
             using var conn = ctx.CreateConnection();
             conn.Open();
-            bool q = await conn.ExecuteScalarAsync<bool>(@"select exists (select 1 from app_user t where t.username = @username and t.id <> @id)", new { username = username, id = id });
+            bool q = await conn.ExecuteScalarAsync<bool>(@"select exists (select 1 from app_user t where t.username = @username and t.id <> @id)", new { username, id });
 
             return q;
         }
@@ -76,7 +76,7 @@ namespace smrp.Services
         {
             using var conn = ctx.CreateConnection();
             conn.Open();
-            bool q = await conn.ExecuteScalarAsync<bool>(@"select exists (select 1 from app_user t where t.username = @username)", new { username = username });
+            bool q = await conn.ExecuteScalarAsync<bool>(@"select exists (select 1 from app_user t where t.username = @username)", new { username });
 
             return q;
         }

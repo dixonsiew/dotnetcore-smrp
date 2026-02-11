@@ -255,6 +255,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "smrp.Controllers.Report.MasterPD301Controller",
+    "Method": "Update",
+    "RelativePath": "api/master-pd301/rpt1/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "smrp.Controllers.UserController",
     "Method": "TestAsync",
     "RelativePath": "api/test",
