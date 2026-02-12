@@ -62,7 +62,7 @@ namespace smrp.Controllers
             var lx = await userService.FindAllAsync(pg.LowerBound, pg.PageSize, sortBy, sortDir);
             Response.Headers.Append(Constants.X_TOTAL_COUNT, total.ToString());
             Response.Headers.Append(Constants.X_TOTAL_PAGE, pg.TotalPages.ToString());
-            return Results.Ok(lx);
+            return Results.Json(lx);
         }
 
         [HttpPost("users")]
@@ -91,7 +91,7 @@ namespace smrp.Controllers
             var lx = await userService.FindByKeywordAsync(key, pg.LowerBound, pg.PageSize, sortBy, sortDir);
             Response.Headers.Append(Constants.X_TOTAL_COUNT, total.ToString());
             Response.Headers.Append(Constants.X_TOTAL_PAGE, pg.TotalPages.ToString());
-            return Results.Ok(lx);
+            return Results.Json(lx);
         }
 
         [HttpPost("user")]
@@ -128,7 +128,7 @@ namespace smrp.Controllers
                 Roles = [role],
             };
             await userService.SaveAsync(o);
-            return Results.Ok(new
+            return Results.Json(new
             {
                 success = 1,
             });
@@ -148,7 +148,7 @@ namespace smrp.Controllers
                 }, statusCode: StatusCodes.Status404NotFound);
             }
 
-            return Results.Ok(o);
+            return Results.Json(o);
         }
     }
 }

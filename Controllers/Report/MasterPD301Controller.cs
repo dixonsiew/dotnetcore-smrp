@@ -1,6 +1,8 @@
-﻿using Dapper;
+﻿using Amazon.Runtime.Internal.Transform;
+using Dapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using smrp.Controllers.Report.MasterPD301;
@@ -9,7 +11,10 @@ using smrp.Models;
 using smrp.Services;
 using smrp.sql;
 using smrp.Utils;
+using System.Net.Mime;
+using System.Runtime.Intrinsics.X86;
 using System.Security.Claims;
+using System.Text.Json;
 
 namespace smrp.Controllers.Report
 {
@@ -20,14 +25,147 @@ namespace smrp.Controllers.Report
         private readonly RsConnection rscon;
         private readonly IConfiguration config;
         private readonly IMongoClient client;
-        private readonly UserService userService;
+        private readonly CommonSetupService commonSetupService;
+        private readonly ReportService reportService;
+        private readonly JsonSerializerOptions jsonOptions;
 
         public MasterPD301Controller(DefaultConnection conn, RsConnection rsconn, IConfiguration cfg, IMongoClient cli)
         {
             rscon = rsconn;
             config = cfg;
             client = cli;
-            userService = new UserService(conn);
+            commonSetupService = new CommonSetupService(conn);
+            reportService = new ReportService(conn, commonSetupService);
+            jsonOptions = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                IndentSize = 4,
+            };
+        }
+
+        [HttpGet("export/rpt1")]
+        [Authorize]
+        public async Task<IResult> JsonPD101(
+            [FromQuery(Name = "datefrom")] string datefrom = "",
+            [FromQuery(Name = "dateto")] string dateto = "")
+        {
+            var userClaimsPrincipal = User;
+            var username = userClaimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
+            if (username == null)
+            {
+                return ApiResult.UserNotFound;
+            }
+
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var col = GetCollection(client, username, "0");
+            var lx = await col.Find(filter).ToListAsync();
+            var ls = Helper.ProcessDoc(lx);
+
+            var dt1 = datefrom.Split("-");
+            var dt2 = datefrom.Split("-");
+            var ds1 = $"{dt1[2]}{dt1[1]}{dt1[0]}";
+            var ds2 = $"{dt2[2]}{dt2[1]}{dt2[0]}";
+
+            var forms = new List<Dictionary<string, object>>();
+            foreach (var d in ls)
+            {
+                var person = new Dictionary<string, object>()
+                {
+                    { "refPersonTitleCode",        await reportService.RefPersonTitleCode(d) },
+                    { "fullName",                  Helper.GetStr(d["PATIENT_NAME"]) },
+                    { "refIdentificationTypeCode", await reportService.RefIdentificationTypeCode(d) },
+                    { "identificationNo",          Helper.GetStr(d["DOCUMENT_NUMBER"]) },
+                    { "refAddressTypeCode",        "C" },
+                    { "street1",                   Helper.GetStr(d["STREET1"]) },
+                    { "street2",                   Helper.GetStr(d["STREET2"]) },
+                    { "refCityCode",               await reportService.RefCityCode(d) },
+                    { "refPostCode",               Helper.GetStr(d["POSTCODE"]) },
+                    { "refStateCode",              await reportService.RefStateCode(d) },
+                    { "refCountryCode",            await reportService.RefCitizenshipCode(d) },
+                    { "refContactTypeCode",        "02" },
+                    { "contactInfo",               Helper.GetStr(d["HOME_PHONE"]) },
+                };
+
+                var nok = new Dictionary<string, object>()
+                {
+                    { "refPersonTitleCode",        await reportService.RefPersonTitleCodeNOK(d) },
+                    { "fullName",                  Helper.GetStr(d["PATIENT_NOK_NAME"]) },
+                    { "refIdentificationTypeCode", await reportService.RefIdentificationTypeCodeNOK(d) },
+                    { "identificationNo",          Helper.GetStr(d["NOK_ID"]) },
+                    { "refAddressTypeCode",        "C" },
+                    { "street1",                   $"{d["NOK_STREET1"]}" },
+                    { "street2",                   Helper.GetStr(d["NOK_STREET2"]) },
+                    { "refCityCode",               await reportService.RefCityCodeNOK(d) },
+                    { "refPostCode",               Helper.GetStr(d["NOK_POSTCODE"]) },
+                    { "refStateCode",              await reportService.RefStateCodeNOK(d) },
+                    { "refCountryCode",            await reportService.RefCitizenshipCodeNOK(d) },
+                    { "refContactTypeCode",        "02" },
+                    { "contactInfo",               Helper.GetStr(d["NOK_MOBILE_PHONE"]) },
+                };
+
+                var m = new Dictionary<string, object>()
+                {
+                    { "rn",                               Helper.GetStr(d["ACCOUNT_NO"]) },
+                    { "mrn",                              Helper.GetStr(d["PRN"]) },
+                    { "eventDate",                        $"{d["REGISTRATION_DATE"]} {d["REGISTRATION_TIME"]}:00" },
+                    { "isPoliceCase",                     "02" },
+                    { "internalReferral",                 "false" },
+                    { "refReferralSourceCode",            await reportService.RefReferralSourceCode(d) },
+                    { "refGenderCode",                    await reportService.RefGenderCode(d) },
+                    { "dob",                              $"{d["DOB"]}" },
+                    { "refMaritalStatusCode",             await reportService.RefMaritalStatusCode(d) },
+                    { "refReligionCode",                  await reportService.RefReligionCode(d) },
+                    { "refCitizenshipCode",               await reportService.RefCitizenshipCode(d) },
+                    { "refEthnicCode",                    await reportService.RefEthnicCode(d) },
+                    { "height",                           Helper.GetNum($"{d["HEIGHT"]}") },
+                    { "weight",                           Helper.GetNum($"{d["WEIGHT"]}") },
+                    { "refForeignerOriginCountryCode",    await reportService.RefForeignerOriginCountryCode(d) },
+                    { "refForeignerResidenceCountryCode", await reportService.RefForeignerResidenceCountryCode(d) },
+                    { "refPersonCategoryCode",            await reportService.RefPersonCategoryCode(d) },
+                    { "refRelationshipCode",              await reportService.RefRelationshipCode(d) },
+                    { "totalDurationDay",                 "0" },
+                    { "refWardTransitionTypeCode",        "A" },
+                    { "wardDateTime",                     $"{d["ADMISSION_DATE"]} {d["ADMISSION_TIME"]}:00" },
+                    { "wardCode",                         Helper.GetStr(d["WARD_NO"]) },
+                    { "refDisciplineCode",                await reportService.RefDisciplineCode(d) },
+                    { "refSpecialityCode",                await reportService.RefDisciplineCode(d) },
+                    { "refSubSpecialityCode",             await reportService.RefDisciplineCode(d) },
+                    { "refWardClassCode",                 await reportService.RefWardClassCode(d) },
+                    { "refWardCategoryCode",              "00" },
+                    { "refDischargeTypeCode",             await reportService.RefDischargeTypeCode(d) },
+                    { "dischargeDateTime",                $"{d["DISCHARGE_DATE"]} {d["DISCHARGE_TIME"]}:00" },
+                    { "refDischargeOfficerTypeCode",      "02" },
+                    { "mmc",                              "00" },
+                    { "refDiagnosisItemTypeCode",         await reportService.RefDiagnosisItemTypeCode(d) },
+                    { "description",                      Helper.GetStr(d["ICD10_DESCRIPTION"]) },
+                    { "refIcd10Main",                     Helper.GetStr(d["ICD10_CODE"]) },
+                    { "person",                           person },
+                    { "nextOfKins",                       nok },
+                };
+
+                forms.Add(m);
+            }
+
+            var facilityCode = config["facilityCode"];
+            var filename = $"{ds1}_{ds2}_PD301.json";
+
+            Response.Headers.Append(HeaderNames.ContentDisposition, $"attachment; filename={filename}");
+            Response.Headers.Append(HeaderNames.CacheControl, "no-cache, no-store, must-revalidate");
+            Response.Headers.Append(HeaderNames.Pragma, "no-cache");
+            Response.Headers.Append(HeaderNames.Expires, "0");
+            Response.Headers.Append("filename", filename);
+            Response.Headers.Append(HeaderNames.ContentType, MediaTypeNames.Application.Json);
+
+            var data = new
+            {
+                filename,
+                dischargeFrom = datefrom,
+                dischargeTo = dateto,
+                refServiceTypeCode = "01",
+                facilityCode,
+                forms,
+            };
+            return Results.Json(data, jsonOptions, MediaTypeNames.Application.Json);
         }
 
         [HttpGet("rpt1")]
@@ -39,17 +177,11 @@ namespace smrp.Controllers.Report
             [FromQuery(Name = "datefrom")] string datefrom = "",
             [FromQuery(Name = "dateto")] string dateto = "")
         {
-            IResult res = Results.Json(new
-            {
-                statusCode = StatusCodes.Status404NotFound,
-                message = "User not found",
-            }, statusCode: StatusCodes.Status404NotFound);
-
             var userClaimsPrincipal = User;
             var username = userClaimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
             if (username == null)
             {
-                return res;
+                return ApiResult.UserNotFound;
             }
 
             var filter = Builders<BsonDocument>.Filter.Empty;
@@ -72,7 +204,7 @@ namespace smrp.Controllers.Report
             var pg = new Pager(Convert.ToInt32(total), Convert.ToInt32(page), Convert.ToInt32(limit));
             var lx = await col.Find(filter).Skip(pg.LowerBound).Limit(pg.PageSize).ToListAsync();
             var ls = Helper.ProcessDoc(lx);
-            return Results.Ok(new
+            return Results.Json(new
             {
                 columnmaps = RptColMap.COLUMN_MAP,
                 total_count = total,
@@ -88,38 +220,26 @@ namespace smrp.Controllers.Report
         [Authorize]
         public async Task<IResult> SearchList(ReportQueryDto data)
         {
-            IResult res = Results.Json(new
-            {
-                statusCode = StatusCodes.Status404NotFound,
-                message = "User not found",
-            }, statusCode: StatusCodes.Status404NotFound);
-
             var userClaimsPrincipal = User;
             var username = userClaimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
             if (username == null)
             {
-                return res;
+                return ApiResult.UserNotFound;
             }
 
             var md = await QueryAndSaveAsync(data, username);
-            return Results.Ok(md);
+            return Results.Json(md);
         }
 
         [HttpGet("rpt1/{id}")]
         [Authorize]
         public async Task<IResult> Edit(string id, [FromQuery(Name = "vt")] string vt = "0")
         {
-            IResult res = Results.Json(new
-            {
-                statusCode = StatusCodes.Status404NotFound,
-                message = "User not found",
-            }, statusCode: StatusCodes.Status404NotFound);
-
             var userClaimsPrincipal = User;
             var username = userClaimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
             if (username == null)
             {
-                return res;
+                return ApiResult.UserNotFound;
             }
 
             var col = GetCollection(client, username, vt);
@@ -130,7 +250,7 @@ namespace smrp.Controllers.Report
 
             if (ls.Count > 0)
             {
-                return Results.Ok(ls[0].ToDictionary());
+                return Results.Json(ls[0].ToDictionary());
             }
 
             return Results.Json(new
@@ -144,17 +264,11 @@ namespace smrp.Controllers.Report
         [Authorize]
         public async Task<IResult> Update(Dictionary<string, object> data, string id, [FromQuery(Name = "vt")] string vt = "0")
         {
-            IResult res = Results.Json(new
-            {
-                statusCode = StatusCodes.Status404NotFound,
-                message = "User not found",
-            }, statusCode: StatusCodes.Status404NotFound);
-
             var userClaimsPrincipal = User;
             var username = userClaimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
             if (username == null)
             {
-                return res;
+                return ApiResult.UserNotFound;
             }
 
             var col = GetCollection(client, username, vt);
@@ -169,7 +283,7 @@ namespace smrp.Controllers.Report
 
             var combinedUpdate = Builders<BsonDocument>.Update.Combine(updateDefinitions);
             await col.FindOneAndUpdateAsync(filter, combinedUpdate);
-            return Results.Ok(new
+            return Results.Json(new
             {
                 success = 1,
             });

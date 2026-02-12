@@ -16,6 +16,16 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IViewRenderService, ViewRenderService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddCors(c =>
+{
+    c.AddPolicy("smrp", c =>
+    {
+        c.WithOrigins("*")
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .WithExposedHeaders("Authorization", "filename", Constants.X_TOTAL_COUNT, Constants.X_TOTAL_PAGE);
+    });
+});
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
@@ -63,12 +73,16 @@ builder.Services.AddAuthentication(o =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? ""))
     };
 });
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.WriteIndented = true;
+});
 
 var app = builder.Build();
 
 string basePath = "smrp";
 app.UsePathBase($"/{basePath}");
-app.UseCors();
+app.UseCors("smrp");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

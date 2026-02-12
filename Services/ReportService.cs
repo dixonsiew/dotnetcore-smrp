@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using smrp.Utils;
+using System.Threading.Tasks;
 
 namespace smrp.Services
 {
@@ -57,6 +58,11 @@ namespace smrp.Services
         public async Task<string> RefEthnicCode(BsonDocument doc)
         {
             return await GetCode("ETHNIC_GROUP", doc, "ethnic_group");
+        }
+
+        public async Task<string> RefForeignerOriginCountryCode(BsonDocument doc)
+        {
+            return await GetCode("COUNTRY_OF_BIRTH", doc, "country");
         }
 
         public async Task<string> RefForeignerResidenceCountryCode(BsonDocument doc)

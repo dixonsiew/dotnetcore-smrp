@@ -42,7 +42,7 @@ namespace smrp.Controllers
             await userService.UpdateLastLoginAsync(user.Id);
             string token = tokenService.GenerateAccessToken(user);
             string refreshToken = tokenService.GenerateRefreshToken(user);
-            return Results.Ok(new
+            return Results.Json(new
             {
                 type = "bearer",
                 token,
@@ -74,7 +74,7 @@ namespace smrp.Controllers
                 return res;
             }
 
-            return Results.Ok(new
+            return Results.Json(new
             {
                 id = user.Id,
                 username = user.Username,
@@ -119,7 +119,7 @@ namespace smrp.Controllers
 
             user.Password = data.Password;
             await userService.UpdatePasswordAsync(user);
-            return Results.Ok(new
+            return Results.Json(new
             {
                 success = 1,
             });
