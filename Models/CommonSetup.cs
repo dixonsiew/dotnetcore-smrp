@@ -27,7 +27,7 @@ namespace smrp.Models
         public string? ModifiedDate { get; set; }
 
         [JsonPropertyName("deleted")]
-        public required bool Deleted { get; set; }
+        public bool? Deleted { get; set; }
 
         [JsonPropertyName("deleted_by")]
         public int? DeletedBy { get; set; }

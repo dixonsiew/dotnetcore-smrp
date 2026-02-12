@@ -12,12 +12,12 @@ using smrp.Services;
 using smrp.sql;
 using smrp.Utils;
 using System.Net.Mime;
-using System.Runtime.Intrinsics.X86;
 using System.Security.Claims;
 using System.Text.Json;
 
 namespace smrp.Controllers.Report
 {
+    [Authorize]
     [Route("api/master-pd301")]
     [ApiController]
     public class MasterPD301Controller : ControllerBase
@@ -43,6 +43,7 @@ namespace smrp.Controllers.Report
             };
         }
 
+        [HttpGet("export/rpt2")]
         public async Task<IResult> JsonRH101(
             [FromQuery(Name = "datefrom")] string datefrom = "",
             [FromQuery(Name = "dateto")] string dateto = "")
@@ -69,18 +70,72 @@ namespace smrp.Controllers.Report
             {
                 var person = new Dictionary<string, object>()
                 {
-
+                    { "refPersonTitleCode",        await reportService.RefPersonTitleCode(d) },
+                    { "fullName",                  Helper.GetStr(d["PATIENT_NAME"]) },
+                    { "refIdentificationTypeCode", await reportService.RefIdentificationTypeCode(d) },
+                    { "identificationNo",          Helper.GetStr(d["DOCUMENT_NUMBER"]) },
+                    { "refAddressTypeCode",        "C" },
+                    { "street1",                   Helper.GetStr(d["STREET1"]) },
+                    { "street2",                   Helper.GetStr(d["STREET2"]) },
+                    { "refCityCode",               await reportService.RefCityCode(d) },
+                    { "refPostCode",               Helper.GetStr(d["POSTCODE"]) },
+                    { "refStateCode",              await reportService.RefStateCode(d) },
+                    { "refCountryCode",            await reportService.RefCitizenshipCode(d) },
+                    { "refContactTypeCode",        "02" },
+                    { "contactInfo",               Helper.GetStr(d["HOME_PHONE"]) },
                 };
 
                 var nok = new Dictionary<string, object>()
                 {
-
+                    { "refPersonTitleCode",        await reportService.RefPersonTitleCodeNOK(d) },
+                    { "fullName",                  Helper.GetStr(d["PATIENT_NOK_NAME"]) },
+                    { "refIdentificationTypeCode", await reportService.RefIdentificationTypeCodeNOK(d) },
+                    { "identificationNo",          Helper.GetStr(d["NOK_ID"]) },
+                    { "refAddressTypeCode",        "C" },
+                    { "street1",                   Helper.GetStr(d["NOK_STREET1"]) },
+                    { "street2",                   Helper.GetStr(d["NOK_STREET2"]) },
+                    { "refCityCode",               await reportService.RefCityCodeNOK(d) },
+                    { "refPostCode",               Helper.GetStr(d["NOK_POSTCODE"]) },
+                    { "refStateCode",              await reportService.RefStateCodeNOK(d) },
+                    { "refCountryCode",            await reportService.RefCitizenshipCodeNOK(d) },
+                    { "refContactTypeCode",        "02" },
+                    { "contactInfo",               Helper.GetStr(d["NOK_MOBILE_PHONE"]) },
                 };
 
                 var m = new Dictionary<string, object>()
                 {
-
+                    { "rn",                               Helper.GetStr(d["ACCOUNT_NO"]) },
+                    { "mrn",                              Helper.GetStr(d["PRN"]) },
+                    { "eventDate",                        $"{d["REGISTRATION_DATE"]} {d["REGISTRATION_TIME"]}:00" },
+                    { "isPoliceCase",                     "02" },
+                    { "internalReferral",                 "false" },
+                    { "refReferralSourceCode",            await reportService.RefReferralSourceCode(d) },
+                    { "refGenderCode",                    await reportService.RefGenderCode(d) },
+                    { "dob",                              Helper.GetStr(d["DOB"]) },
+                    { "refMaritalStatusCode",             await reportService.RefMaritalStatusCode(d) },
+                    { "refReligionCode",                  await reportService.RefReligionCode(d) },
+                    { "refCitizenshipCode",               await reportService.RefCitizenshipCode(d) },
+                    { "refEthnicCode",                    await reportService.RefEthnicCode(d) },
+                    { "height",                           Helper.GetNum(Helper.GetStr(d["HEIGHT"])) },
+                    { "weight",                           Helper.GetNum(Helper.GetStr(d["WEIGHT"])) },
+                    { "refForeignerOriginCountryCode",    await reportService.RefForeignerOriginCountryCode(d) },
+                    { "refForeignerResidenceCountryCode", await reportService.RefForeignerResidenceCountryCode(d) },
+                    { "refPersonCategoryCode",            await reportService.RefPersonCategoryCode(d) },
+                    { "refRelationshipCode",              await reportService.RefRelationshipCode(d) },
+                    { "totalDurationDay",                 "0" },
+                    { "admissionDate",                    fmt.Sprintf("%s %s:00", d["ADMISSION_DATE"], d["ADMISSION_TIME"]) },
+                    { "refDischargeTypeCode",             await reportService.RefDischargeTypeCode(d) },
+                    { "dischargeDateTime",                $"{d["DISCHARGE_DATE"]} {d["DISCHARGE_TIME"]}:00" },
+                    { "refDischargeOfficerTypeCode",      "02" },
+                    { "mmc",                              "00" },
+                    { "refDiagnosisItemTypeCode",         await reportService.RefDiagnosisItemTypeCode(d) },
+                    { "description",                      Helper.GetStr(d["ICD10_DESCRIPTION"]) },
+                    { "refIcd10Main",                     Helper.GetStr(d["ICD10_CODE"]) },
+                    { "person",                           person },
+                    { "nextOfKins",                       nok },
                 };
+
+                forms.Add(m);
             }
 
             var facilityCode = config["facilityCode"];
@@ -106,7 +161,6 @@ namespace smrp.Controllers.Report
         }
 
         [HttpGet("export/rpt1")]
-        [Authorize]
         public async Task<IResult> JsonPD101(
             [FromQuery(Name = "datefrom")] string datefrom = "",
             [FromQuery(Name = "dateto")] string dateto = "")
@@ -231,7 +285,6 @@ namespace smrp.Controllers.Report
         }
 
         [HttpGet("rpt1")]
-        [Authorize]
         public async Task<IResult> List(
             [FromQuery(Name = "_page")] string page = "1",
             [FromQuery(Name = "_limit")] string limit = "20",
@@ -279,7 +332,6 @@ namespace smrp.Controllers.Report
         }
 
         [HttpPost("rpt1")]
-        [Authorize]
         public async Task<IResult> SearchList(ReportQueryDto data)
         {
             var userClaimsPrincipal = User;
@@ -294,7 +346,6 @@ namespace smrp.Controllers.Report
         }
 
         [HttpGet("rpt1/{id}")]
-        [Authorize]
         public async Task<IResult> Edit(string id, [FromQuery(Name = "vt")] string vt = "0")
         {
             var userClaimsPrincipal = User;
@@ -322,8 +373,7 @@ namespace smrp.Controllers.Report
             }, statusCode: StatusCodes.Status404NotFound);
         }
 
-        [HttpPost("rpt1/{id}")]
-        [Authorize]
+        [HttpPut("rpt1/{id}")]
         public async Task<IResult> Update(Dictionary<string, object> data, string id, [FromQuery(Name = "vt")] string vt = "0")
         {
             var userClaimsPrincipal = User;

@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using smrp.Models;
 using smrp.Utils;
+using System.Transactions;
 
 namespace smrp.Services
 {
@@ -89,6 +90,30 @@ namespace smrp.Services
             int q = await conn.ExecuteScalarAsync<int>(@$"select count(id) from {table} t where (t.code ilike @keyword or t.desc ilike @keyword or t.ref ilike @keyword) and t.deleted is not true", new { keyword });
 
             return q;
+        }
+
+        public async Task SaveAsync(CommonSetup o, string table)
+        {
+            using var conn = ctx.CreateConnection();
+            conn.Open();
+            var q = @$"insert into {table} (id, code, ""desc"", ref, created_by, created_date) values(nextval('%s_id_seq'),@code,@desc,@reff,@createdby,now())";
+            await conn.ExecuteAsync(q, new { code = o.Code, desc = o.Desc, reff = o.Ref, createdby = o.CreatedBy });
+        }
+
+        public async Task UpdateAsync(CommonSetup o, string table)
+        {
+            using var conn = ctx.CreateConnection();
+            conn.Open();
+            var q = $@"update {table} set code = @code, ""desc"" = @desc, ref = @reff, modified_by = @modifiedby, modified_date = now() where id = @id";
+            await conn.ExecuteAsync(q, new { code = o.Code, desc = o.Desc, reff = o.Ref, modifiedby = o.ModifiedBy, id = o.Id });
+        }
+
+        public async Task DeleteByIdAsync(long id, int userid, string table)
+        {
+            using var conn = ctx.CreateConnection();
+            conn.Open();
+            var q = $@"update {table} set deleted = true, deleted_by = @userid, deleted_date = now() where id = @id";
+            await conn.ExecuteAsync(q, new { userid, id });
         }
     }
 }

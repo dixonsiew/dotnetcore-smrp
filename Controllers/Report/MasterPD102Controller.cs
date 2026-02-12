@@ -16,6 +16,7 @@ using System.Text.Json;
 
 namespace smrp.Controllers.Report
 {
+    [Authorize]
     [Route("api/master-pd102")]
     [ApiController]
     public class MasterPD102Controller : ControllerBase
@@ -42,7 +43,6 @@ namespace smrp.Controllers.Report
         }
 
         [HttpGet("export/rpt1")]
-        [Authorize]
         public async Task<IResult> JsonPD101(
             [FromQuery(Name = "datefrom")] string datefrom = "",
             [FromQuery(Name = "dateto")] string dateto = "")
@@ -180,7 +180,6 @@ namespace smrp.Controllers.Report
         }
 
         [HttpGet("rpt1")]
-        [Authorize]
         public async Task<IResult> List(
             [FromQuery(Name = "_page")] string page = "1",
             [FromQuery(Name = "_limit")] string limit = "20",
@@ -227,7 +226,6 @@ namespace smrp.Controllers.Report
         }
 
         [HttpPost("rpt1")]
-        [Authorize]
         public async Task<IResult> SearchList(ReportQueryDto data)
         {
             var userClaimsPrincipal = User;
@@ -242,7 +240,6 @@ namespace smrp.Controllers.Report
         }
 
         [HttpGet("rpt1/{id}")]
-        [Authorize]
         public async Task<IResult> Edit(string id)
         {
             var userClaimsPrincipal = User;
@@ -270,8 +267,7 @@ namespace smrp.Controllers.Report
             }, statusCode: StatusCodes.Status404NotFound);
         }
 
-        [HttpPost("rpt1/{id}")]
-        [Authorize]
+        [HttpPut("rpt1/{id}")]
         public async Task<IResult> Update(Dictionary<string, object> data, string id)
         {
             var userClaimsPrincipal = User;

@@ -1,54 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\controllers\\report\\masterpd301controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:controllers\\report\\masterpd301controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet core\\dotnetcore-smrp\\controllers\\report\\masterpd105controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:controllers\\report\\masterpd105controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MasterPD105Controller.cs",
-              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\Report\\MasterPD105Controller.cs",
-              "RelativeDocumentMoniker": "Controllers\\Report\\MasterPD105Controller.cs",
-              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\Report\\MasterPD105Controller.cs",
-              "RelativeToolTip": "Controllers\\Report\\MasterPD105Controller.cs",
-              "ViewState": "AgIAABsBAAAAAAAAAIAwwPcAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T09:40:05.316Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MasterPD301Controller.cs",
-              "DocumentMoniker": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\Report\\MasterPD301Controller.cs",
-              "RelativeDocumentMoniker": "Controllers\\Report\\MasterPD301Controller.cs",
-              "ToolTip": "C:\\learn\\aspnet core\\dotnetcore-smrp\\Controllers\\Report\\MasterPD301Controller.cs",
-              "RelativeToolTip": "Controllers\\Report\\MasterPD301Controller.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAowFIAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T09:19:02.572Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

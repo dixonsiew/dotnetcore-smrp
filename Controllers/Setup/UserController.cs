@@ -4,10 +4,10 @@ using smrp.Dtos;
 using smrp.Models;
 using smrp.Services;
 using smrp.Utils;
-using System.Data;
 
-namespace smrp.Controllers
+namespace smrp.Controllers.Setup
 {
+    [Authorize]
     [Route("api")]
     [ApiController]
     public class UserController : ControllerBase
@@ -39,7 +39,6 @@ namespace smrp.Controllers
         }
 
         [HttpGet("users")]
-        [Authorize]
         public async Task<IResult> List(
             [FromQuery(Name = "_page")] string page = "1", 
             [FromQuery(Name = "_limit")] string limit = "20",
@@ -66,7 +65,6 @@ namespace smrp.Controllers
         }
 
         [HttpPost("users")]
-        [Authorize]
         public async Task<IResult> SearchList(
             KeywordDto data,
             [FromQuery(Name = "_page")] string page = "1",
@@ -95,7 +93,6 @@ namespace smrp.Controllers
         }
 
         [HttpPost("user")]
-        [Authorize]
         public async Task<IResult> Create(UserDto data)
         {
             string username = data.Username;
@@ -135,7 +132,6 @@ namespace smrp.Controllers
         }
 
         [HttpGet("user/{id}")]
-        [Authorize]
         public async Task<IResult> Edit(long id)
         {
             var o = await userService.FindByIdAsync(id);
