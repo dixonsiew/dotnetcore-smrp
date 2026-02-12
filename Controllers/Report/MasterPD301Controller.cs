@@ -43,6 +43,68 @@ namespace smrp.Controllers.Report
             };
         }
 
+        public async Task<IResult> JsonRH101(
+            [FromQuery(Name = "datefrom")] string datefrom = "",
+            [FromQuery(Name = "dateto")] string dateto = "")
+        {
+            var userClaimsPrincipal = User;
+            var username = userClaimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
+            if (username == null)
+            {
+                return ApiResult.UserNotFound;
+            }
+
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var col = GetCollection(client, username, "1");
+            var lx = await col.Find(filter).ToListAsync();
+            var ls = Helper.ProcessDoc(lx);
+
+            var dt1 = datefrom.Split("-");
+            var dt2 = datefrom.Split("-");
+            var ds1 = $"{dt1[2]}{dt1[1]}{dt1[0]}";
+            var ds2 = $"{dt2[2]}{dt2[1]}{dt2[0]}";
+
+            var forms = new List<Dictionary<string, object>>();
+            foreach (var d in ls)
+            {
+                var person = new Dictionary<string, object>()
+                {
+
+                };
+
+                var nok = new Dictionary<string, object>()
+                {
+
+                };
+
+                var m = new Dictionary<string, object>()
+                {
+
+                };
+            }
+
+            var facilityCode = config["facilityCode"];
+            var filename = $"{ds1}_{ds2}_RH301.json";
+
+            Response.Headers.Append(HeaderNames.ContentDisposition, $"attachment; filename={filename}");
+            Response.Headers.Append(HeaderNames.CacheControl, "no-cache, no-store, must-revalidate");
+            Response.Headers.Append(HeaderNames.Pragma, "no-cache");
+            Response.Headers.Append(HeaderNames.Expires, "0");
+            Response.Headers.Append("filename", filename);
+            Response.Headers.Append(HeaderNames.ContentType, MediaTypeNames.Application.Json);
+
+            var data = new
+            {
+                filename,
+                dischargeFrom = datefrom,
+                dischargeTo = dateto,
+                refServiceTypeCode = "02",
+                facilityCode,
+                forms,
+            };
+            return Results.Json(data, jsonOptions, MediaTypeNames.Application.Json);
+        }
+
         [HttpGet("export/rpt1")]
         [Authorize]
         public async Task<IResult> JsonPD101(
