@@ -63,12 +63,12 @@ namespace smrp.Models
                 Desc = o.desc,
                 Ref = o.reff,
                 CreatedBy = o.created_by,
-                CreatedDate = o.created_date,
+                CreatedDate = o.created_date?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
                 ModifiedBy = o.modified_by,
-                ModifiedDate = o.modified_date,
+                ModifiedDate = o.modified_date?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
                 Deleted = o.deleted,
                 DeletedBy = o.deleted_by,
-                DeletedDate = o.deleted_date,
+                DeletedDate = o.deleted_date?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
             };
         }
     }
