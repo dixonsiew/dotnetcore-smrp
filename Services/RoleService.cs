@@ -18,7 +18,6 @@ namespace smrp.Services
         {
             List<Role> lx = new List<Role>();
             using var conn = ctx.CreateConnection();
-            conn.Open();
             var q = await conn.QueryAsync(@$"select id, name from role order by {sortBy} {sortDir}");
             lx = Role.List(q);
 
@@ -29,7 +28,6 @@ namespace smrp.Services
         {
             Role? role = null;
             using var conn = ctx.CreateConnection();
-            conn.Open();
             var q = await conn.QuerySingleOrDefaultAsync(@"select id, name from role where id = @id limit 1", new { id });
             if (q != null)
             {

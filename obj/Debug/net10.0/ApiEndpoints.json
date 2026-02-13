@@ -1,5 +1,154 @@
 [
   {
+    "ContainingType": "smrp.Controllers.Setup.AdmStatusController",
+    "Method": "Create",
+    "RelativePath": "api/adm-status",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/AdmStatus"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.AdmStatusController",
+    "Method": "Edit",
+    "RelativePath": "api/adm-status/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/AdmStatus"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.AdmStatusController",
+    "Method": "Update",
+    "RelativePath": "api/adm-status/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/AdmStatus"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.AdmStatusController",
+    "Method": "Delete",
+    "RelativePath": "api/adm-status/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/AdmStatus"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.AdmStatusController",
+    "Method": "List",
+    "RelativePath": "api/adm-statuses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/AdmStatus"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.AdmStatusController",
+    "Method": "SearchList",
+    "RelativePath": "api/adm-statuses",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/AdmStatus"
+    ]
+  },
+  {
     "ContainingType": "smrp.Controllers.AuthController",
     "Method": "ChangePassword",
     "RelativePath": "api/change-password",
@@ -16,6 +165,304 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "smrp.Controllers.Setup.CityController",
+    "Method": "List",
+    "RelativePath": "api/cities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/City"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CityController",
+    "Method": "SearchList",
+    "RelativePath": "api/cities",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/City"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CityController",
+    "Method": "Create",
+    "RelativePath": "api/city",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/City"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CityController",
+    "Method": "Edit",
+    "RelativePath": "api/city/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/City"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CityController",
+    "Method": "Update",
+    "RelativePath": "api/city/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/City"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CityController",
+    "Method": "Delete",
+    "RelativePath": "api/city/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/City"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CountryController",
+    "Method": "List",
+    "RelativePath": "api/countries",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Country"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CountryController",
+    "Method": "SearchList",
+    "RelativePath": "api/countries",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Country"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CountryController",
+    "Method": "Create",
+    "RelativePath": "api/country",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Country"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CountryController",
+    "Method": "Edit",
+    "RelativePath": "api/country/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Country"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CountryController",
+    "Method": "Update",
+    "RelativePath": "api/country/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Country"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CountryController",
+    "Method": "Delete",
+    "RelativePath": "api/country/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Country"
+    ]
+  },
+  {
     "ContainingType": "smrp.Controllers.AuthController",
     "Method": "UserDetails",
     "RelativePath": "api/current-user",
@@ -24,6 +471,1808 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DeliveryTypeController",
+    "Method": "Create",
+    "RelativePath": "api/delivery-type",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DeliveryType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DeliveryTypeController",
+    "Method": "Edit",
+    "RelativePath": "api/delivery-type/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DeliveryType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DeliveryTypeController",
+    "Method": "Update",
+    "RelativePath": "api/delivery-type/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DeliveryType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DeliveryTypeController",
+    "Method": "Delete",
+    "RelativePath": "api/delivery-type/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DeliveryType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DeliveryTypeController",
+    "Method": "List",
+    "RelativePath": "api/delivery-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DeliveryType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DeliveryTypeController",
+    "Method": "SearchList",
+    "RelativePath": "api/delivery-types",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DeliveryType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DiagItemTypeController",
+    "Method": "Create",
+    "RelativePath": "api/diag-item-type",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DiagItemType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DiagItemTypeController",
+    "Method": "Edit",
+    "RelativePath": "api/diag-item-type/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DiagItemType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DiagItemTypeController",
+    "Method": "Update",
+    "RelativePath": "api/diag-item-type/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DiagItemType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DiagItemTypeController",
+    "Method": "Delete",
+    "RelativePath": "api/diag-item-type/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DiagItemType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DiagItemTypeController",
+    "Method": "List",
+    "RelativePath": "api/diag-item-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DiagItemType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DiagItemTypeController",
+    "Method": "SearchList",
+    "RelativePath": "api/diag-item-types",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DiagItemType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeOfficerController",
+    "Method": "Create",
+    "RelativePath": "api/discharge-officer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeOfficer"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeOfficerController",
+    "Method": "Edit",
+    "RelativePath": "api/discharge-officer/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeOfficer"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeOfficerController",
+    "Method": "Update",
+    "RelativePath": "api/discharge-officer/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeOfficer"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeOfficerController",
+    "Method": "Delete",
+    "RelativePath": "api/discharge-officer/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeOfficer"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeOfficerController",
+    "Method": "List",
+    "RelativePath": "api/discharge-officers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeOfficer"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeOfficerController",
+    "Method": "SearchList",
+    "RelativePath": "api/discharge-officers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeOfficer"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeTypeController",
+    "Method": "Create",
+    "RelativePath": "api/discharge-type",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeTypeController",
+    "Method": "Edit",
+    "RelativePath": "api/discharge-type/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeTypeController",
+    "Method": "Update",
+    "RelativePath": "api/discharge-type/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeTypeController",
+    "Method": "Delete",
+    "RelativePath": "api/discharge-type/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeTypeController",
+    "Method": "List",
+    "RelativePath": "api/discharge-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeTypeController",
+    "Method": "SearchList",
+    "RelativePath": "api/discharge-types",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EducationController",
+    "Method": "Create",
+    "RelativePath": "api/education",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Education"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EducationController",
+    "Method": "Edit",
+    "RelativePath": "api/education/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Education"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EducationController",
+    "Method": "Update",
+    "RelativePath": "api/education/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Education"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EducationController",
+    "Method": "Delete",
+    "RelativePath": "api/education/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Education"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EducationController",
+    "Method": "List",
+    "RelativePath": "api/educations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Education"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EducationController",
+    "Method": "SearchList",
+    "RelativePath": "api/educations",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Education"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EthnicGroupController",
+    "Method": "Create",
+    "RelativePath": "api/ethnic-group",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/EthnicGroup"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EthnicGroupController",
+    "Method": "Edit",
+    "RelativePath": "api/ethnic-group/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/EthnicGroup"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EthnicGroupController",
+    "Method": "Update",
+    "RelativePath": "api/ethnic-group/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/EthnicGroup"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EthnicGroupController",
+    "Method": "Delete",
+    "RelativePath": "api/ethnic-group/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/EthnicGroup"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EthnicGroupController",
+    "Method": "List",
+    "RelativePath": "api/ethnic-groups",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/EthnicGroup"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EthnicGroupController",
+    "Method": "SearchList",
+    "RelativePath": "api/ethnic-groups",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/EthnicGroup"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.GenderController",
+    "Method": "Create",
+    "RelativePath": "api/gender",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Gender"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.GenderController",
+    "Method": "Edit",
+    "RelativePath": "api/gender/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Gender"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.GenderController",
+    "Method": "Update",
+    "RelativePath": "api/gender/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Gender"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.GenderController",
+    "Method": "Delete",
+    "RelativePath": "api/gender/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Gender"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.GenderController",
+    "Method": "List",
+    "RelativePath": "api/genders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Gender"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.GenderController",
+    "Method": "SearchList",
+    "RelativePath": "api/genders",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Gender"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IDTypeController",
+    "Method": "Create",
+    "RelativePath": "api/id-type",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/IdType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IDTypeController",
+    "Method": "Edit",
+    "RelativePath": "api/id-type/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/IdType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IDTypeController",
+    "Method": "Update",
+    "RelativePath": "api/id-type/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/IdType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IDTypeController",
+    "Method": "Delete",
+    "RelativePath": "api/id-type/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/IdType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IDTypeController",
+    "Method": "List",
+    "RelativePath": "api/id-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/IdType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IDTypeController",
+    "Method": "SearchList",
+    "RelativePath": "api/id-types",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/IdType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IncomeController",
+    "Method": "Create",
+    "RelativePath": "api/income",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Income"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IncomeController",
+    "Method": "Edit",
+    "RelativePath": "api/income/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Income"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IncomeController",
+    "Method": "Update",
+    "RelativePath": "api/income/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Income"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IncomeController",
+    "Method": "Delete",
+    "RelativePath": "api/income/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Income"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IncomeController",
+    "Method": "List",
+    "RelativePath": "api/incomes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Income"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IncomeController",
+    "Method": "SearchList",
+    "RelativePath": "api/incomes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Income"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.AdmStatusController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/adm-statuses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/AdmStatus"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CityController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/cities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/City"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.CountryController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/countries",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Country"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DeliveryTypeController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/delivery-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DeliveryType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DiagItemTypeController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/diag-item-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DiagItemType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeOfficerController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/discharge-officers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeOfficer"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.DischargeTypeController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/discharge-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/DischargeType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EducationController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/educations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Education"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.EthnicGroupController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/ethnic-groups",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/EthnicGroup"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.GenderController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/genders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Gender"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.RoleController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/groups",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Role"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IDTypeController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/id-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/IdType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.IncomeController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/incomes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Income"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.MaritalStatusController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/marital-statuses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/MaritalStatus"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.OccupationController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/occupations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Occupation"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.PersonCategoryCodeController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/person-category-codes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Person Category Code"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReferralController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/referrals",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Referral"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.RelationshipController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/relationships",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Relationship"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReligionController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/religions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Religion"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.SpecialityController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/specialities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Speciality"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.StateController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/states",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/State"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.TitleController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/titles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Title"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.VisitTypeController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/visit-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/VisitType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.WardClassController",
+    "Method": "LookupList",
+    "RelativePath": "api/lookup/ward-classes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/WardClass"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.MaritalStatusController",
+    "Method": "Create",
+    "RelativePath": "api/marital-status",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/MaritalStatus"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.MaritalStatusController",
+    "Method": "Edit",
+    "RelativePath": "api/marital-status/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/MaritalStatus"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.MaritalStatusController",
+    "Method": "Update",
+    "RelativePath": "api/marital-status/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/MaritalStatus"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.MaritalStatusController",
+    "Method": "Delete",
+    "RelativePath": "api/marital-status/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/MaritalStatus"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.MaritalStatusController",
+    "Method": "List",
+    "RelativePath": "api/marital-statuses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/MaritalStatus"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.MaritalStatusController",
+    "Method": "SearchList",
+    "RelativePath": "api/marital-statuses",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/MaritalStatus"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
@@ -44,11 +2293,14 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD101"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
-    "Method": "JsonRH101Async",
+    "Method": "JsonRH101",
     "RelativePath": "api/master-pd101/export/rpt2",
     "HttpMethod": "GET",
     "IsController": true,
@@ -65,7 +2317,10 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD101"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
@@ -101,7 +2356,10 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD101"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
@@ -117,7 +2375,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD101"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
@@ -138,13 +2399,16 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD101"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
     "Method": "Update",
     "RelativePath": "api/master-pd101/rpt1/{id}",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -164,7 +2428,34 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD101"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD102Controller",
+    "Method": "JsonPD101",
+    "RelativePath": "api/master-pd102/export/rpt1",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "datefrom",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dateto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD102"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD102Controller",
@@ -200,7 +2491,10 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD102"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD102Controller",
@@ -216,7 +2510,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD102"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD102Controller",
@@ -230,20 +2527,18 @@
         "Name": "id",
         "Type": "System.String",
         "IsRequired": true
-      },
-      {
-        "Name": "vt",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD102"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD102Controller",
     "Method": "Update",
     "RelativePath": "api/master-pd102/rpt1/{id}",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -256,14 +2551,36 @@
         "Name": "id",
         "Type": "System.String",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD102"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD105Controller",
+    "Method": "JsonPD101",
+    "RelativePath": "api/master-pd105/export/rpt1",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "datefrom",
+        "Type": "System.String",
+        "IsRequired": false
       },
       {
-        "Name": "vt",
+        "Name": "dateto",
         "Type": "System.String",
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD105"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD105Controller",
@@ -299,7 +2616,10 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD105"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD105Controller",
@@ -315,7 +2635,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD105"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD105Controller",
@@ -329,20 +2652,18 @@
         "Name": "id",
         "Type": "System.String",
         "IsRequired": true
-      },
-      {
-        "Name": "vt",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD105"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD105Controller",
     "Method": "Update",
     "RelativePath": "api/master-pd105/rpt1/{id}",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -355,14 +2676,60 @@
         "Name": "id",
         "Type": "System.String",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD105"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD301Controller",
+    "Method": "JsonPD101",
+    "RelativePath": "api/master-pd301/export/rpt1",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "datefrom",
+        "Type": "System.String",
+        "IsRequired": false
       },
       {
-        "Name": "vt",
+        "Name": "dateto",
         "Type": "System.String",
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD301"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD301Controller",
+    "Method": "JsonRH101",
+    "RelativePath": "api/master-pd301/export/rpt2",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "datefrom",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dateto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD301"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD301Controller",
@@ -398,7 +2765,10 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD301"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD301Controller",
@@ -414,7 +2784,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD301"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD301Controller",
@@ -435,13 +2808,16 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD301"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD301Controller",
     "Method": "Update",
     "RelativePath": "api/master-pd301/rpt1/{id}",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -461,20 +2837,1218 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD301"
+    ]
   },
   {
-    "ContainingType": "smrp.Controllers.UserController",
+    "ContainingType": "smrp.Controllers.Setup.OccupationController",
+    "Method": "Create",
+    "RelativePath": "api/occupation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Occupation"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.OccupationController",
+    "Method": "Edit",
+    "RelativePath": "api/occupation/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Occupation"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.OccupationController",
+    "Method": "Update",
+    "RelativePath": "api/occupation/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Occupation"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.OccupationController",
+    "Method": "Delete",
+    "RelativePath": "api/occupation/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Occupation"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.OccupationController",
+    "Method": "List",
+    "RelativePath": "api/occupations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Occupation"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.OccupationController",
+    "Method": "SearchList",
+    "RelativePath": "api/occupations",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Occupation"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.PersonCategoryCodeController",
+    "Method": "Create",
+    "RelativePath": "api/person-category-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Person Category Code"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.PersonCategoryCodeController",
+    "Method": "Edit",
+    "RelativePath": "api/person-category-code/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Person Category Code"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.PersonCategoryCodeController",
+    "Method": "Update",
+    "RelativePath": "api/person-category-code/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Person Category Code"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.PersonCategoryCodeController",
+    "Method": "Delete",
+    "RelativePath": "api/person-category-code/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Person Category Code"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.PersonCategoryCodeController",
+    "Method": "List",
+    "RelativePath": "api/person-category-codes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Person Category Code"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.PersonCategoryCodeController",
+    "Method": "SearchList",
+    "RelativePath": "api/person-category-codes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Person Category Code"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReferralController",
+    "Method": "Create",
+    "RelativePath": "api/referral",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Referral"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReferralController",
+    "Method": "Edit",
+    "RelativePath": "api/referral/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Referral"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReferralController",
+    "Method": "Update",
+    "RelativePath": "api/referral/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Referral"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReferralController",
+    "Method": "Delete",
+    "RelativePath": "api/referral/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Referral"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReferralController",
+    "Method": "List",
+    "RelativePath": "api/referrals",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Referral"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReferralController",
+    "Method": "SearchList",
+    "RelativePath": "api/referrals",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Referral"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.RelationshipController",
+    "Method": "Create",
+    "RelativePath": "api/relationship",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Relationship"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.RelationshipController",
+    "Method": "Edit",
+    "RelativePath": "api/relationship/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Relationship"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.RelationshipController",
+    "Method": "Update",
+    "RelativePath": "api/relationship/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Relationship"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.RelationshipController",
+    "Method": "Delete",
+    "RelativePath": "api/relationship/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Relationship"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.RelationshipController",
+    "Method": "List",
+    "RelativePath": "api/relationships",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Relationship"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.RelationshipController",
+    "Method": "SearchList",
+    "RelativePath": "api/relationships",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Relationship"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReligionController",
+    "Method": "Create",
+    "RelativePath": "api/religion",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Religion"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReligionController",
+    "Method": "Edit",
+    "RelativePath": "api/religion/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Religion"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReligionController",
+    "Method": "Update",
+    "RelativePath": "api/religion/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Religion"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReligionController",
+    "Method": "Delete",
+    "RelativePath": "api/religion/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Religion"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReligionController",
+    "Method": "List",
+    "RelativePath": "api/religions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Religion"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.ReligionController",
+    "Method": "SearchList",
+    "RelativePath": "api/religions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Religion"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.SpecialityController",
+    "Method": "List",
+    "RelativePath": "api/specialities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Speciality"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.SpecialityController",
+    "Method": "SearchList",
+    "RelativePath": "api/specialities",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Speciality"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.SpecialityController",
+    "Method": "Create",
+    "RelativePath": "api/speciality",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Speciality"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.SpecialityController",
+    "Method": "Edit",
+    "RelativePath": "api/speciality/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Speciality"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.SpecialityController",
+    "Method": "Update",
+    "RelativePath": "api/speciality/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Speciality"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.SpecialityController",
+    "Method": "Delete",
+    "RelativePath": "api/speciality/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Speciality"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.StateController",
+    "Method": "Create",
+    "RelativePath": "api/state",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/State"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.StateController",
+    "Method": "Edit",
+    "RelativePath": "api/state/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/State"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.StateController",
+    "Method": "Update",
+    "RelativePath": "api/state/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/State"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.StateController",
+    "Method": "Delete",
+    "RelativePath": "api/state/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/State"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.StateController",
+    "Method": "List",
+    "RelativePath": "api/states",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/State"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.StateController",
+    "Method": "SearchList",
+    "RelativePath": "api/states",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/State"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.UserController",
     "Method": "TestAsync",
     "RelativePath": "api/test",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/User"
+    ]
   },
   {
-    "ContainingType": "smrp.Controllers.UserController",
+    "ContainingType": "smrp.Controllers.Setup.TitleController",
+    "Method": "Create",
+    "RelativePath": "api/title",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Title"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.TitleController",
+    "Method": "Edit",
+    "RelativePath": "api/title/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Title"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.TitleController",
+    "Method": "Update",
+    "RelativePath": "api/title/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Title"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.TitleController",
+    "Method": "Delete",
+    "RelativePath": "api/title/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Title"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.TitleController",
+    "Method": "List",
+    "RelativePath": "api/titles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Title"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.TitleController",
+    "Method": "SearchList",
+    "RelativePath": "api/titles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/Title"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.UserController",
     "Method": "Create",
     "RelativePath": "api/user",
     "HttpMethod": "POST",
@@ -487,10 +4061,13 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/User"
+    ]
   },
   {
-    "ContainingType": "smrp.Controllers.UserController",
+    "ContainingType": "smrp.Controllers.Setup.UserController",
     "Method": "Edit",
     "RelativePath": "api/user/{id}",
     "HttpMethod": "GET",
@@ -503,10 +4080,13 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/User"
+    ]
   },
   {
-    "ContainingType": "smrp.Controllers.UserController",
+    "ContainingType": "smrp.Controllers.Setup.UserController",
     "Method": "List",
     "RelativePath": "api/users",
     "HttpMethod": "GET",
@@ -529,10 +4109,13 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/User"
+    ]
   },
   {
-    "ContainingType": "smrp.Controllers.UserController",
+    "ContainingType": "smrp.Controllers.Setup.UserController",
     "Method": "SearchList",
     "RelativePath": "api/users",
     "HttpMethod": "POST",
@@ -560,7 +4143,308 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/User"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.VisitTypeController",
+    "Method": "Create",
+    "RelativePath": "api/visit-type",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/VisitType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.VisitTypeController",
+    "Method": "Edit",
+    "RelativePath": "api/visit-type/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/VisitType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.VisitTypeController",
+    "Method": "Update",
+    "RelativePath": "api/visit-type/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/VisitType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.VisitTypeController",
+    "Method": "Delete",
+    "RelativePath": "api/visit-type/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/VisitType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.VisitTypeController",
+    "Method": "List",
+    "RelativePath": "api/visit-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/VisitType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.VisitTypeController",
+    "Method": "SearchList",
+    "RelativePath": "api/visit-types",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/VisitType"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.WardClassController",
+    "Method": "Create",
+    "RelativePath": "api/ward-class",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/WardClass"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.WardClassController",
+    "Method": "Edit",
+    "RelativePath": "api/ward-class/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/WardClass"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.WardClassController",
+    "Method": "Update",
+    "RelativePath": "api/ward-class/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/WardClass"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.WardClassController",
+    "Method": "Delete",
+    "RelativePath": "api/ward-class/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.CommonSetupDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/WardClass"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.WardClassController",
+    "Method": "List",
+    "RelativePath": "api/ward-classes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/WardClass"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Setup.WardClassController",
+    "Method": "SearchList",
+    "RelativePath": "api/ward-classes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.KeywordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "_page",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "_limit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Setup/WardClass"
+    ]
   },
   {
     "ContainingType": "smrp.Controllers.AuthController",

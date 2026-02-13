@@ -7,6 +7,7 @@ using smrp.Utils;
 
 namespace smrp.Controllers.Setup
 {
+    [Tags("Setup/User")]
     [Authorize]
     [Route("api")]
     [ApiController]

@@ -16,6 +16,7 @@ using System.Text.Json;
 
 namespace smrp.Controllers.Report
 {
+    [Tags("Report/MasterPD102")]
     [Authorize]
     [Route("api/master-pd102")]
     [ApiController]
@@ -331,7 +332,6 @@ namespace smrp.Controllers.Report
 
             var qs = Sql.GetMasterPD102();
             using var conn = rscon.CreateConnection();
-            conn.Open();
             var q = await conn.QueryAsync<dynamic>(qs, new { datefrom, dateto });
             List<string> colnames = new List<string>();
             List<BsonDocument> lx = new List<BsonDocument>();

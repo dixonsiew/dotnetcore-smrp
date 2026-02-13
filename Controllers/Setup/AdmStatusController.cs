@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using smrp.Dtos;
 using smrp.Models;
 using smrp.Services;
@@ -7,6 +8,7 @@ using System.Security.Claims;
 
 namespace smrp.Controllers.Setup
 {
+    [Tags("Setup/AdmStatus")]
     [Route("api")]
     [ApiController]
     [Authorize]

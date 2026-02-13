@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Globalization;
 using System.Text.Json.Serialization;
 
 namespace smrp.Models
@@ -15,13 +16,13 @@ namespace smrp.Models
         public required string Ref { get; set; }
 
         [JsonPropertyName("created_by")]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         [JsonPropertyName("CreatedDate")]
         public string? CreatedDate { get; set; }
 
         [JsonPropertyName("modified_by")]
-        public int? ModifiedBy { get; set; }
+        public long? ModifiedBy { get; set; }
 
         [JsonPropertyName("modified_date")]
         public string? ModifiedDate { get; set; }
@@ -30,7 +31,7 @@ namespace smrp.Models
         public bool? Deleted { get; set; }
 
         [JsonPropertyName("deleted_by")]
-        public int? DeletedBy { get; set; }
+        public long? DeletedBy { get; set; }
 
         [JsonPropertyName("deleted_date")]
         public string? DeletedDate { get; set; }
@@ -44,12 +45,12 @@ namespace smrp.Models
                 Desc = o.desc,
                 Ref = o.reff,
                 CreatedBy = o.created_by,
-                CreatedDate = o.created_date,
+                CreatedDate = o.created_date?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
                 ModifiedBy = o.modified_by,
-                ModifiedDate = o.modified_date,
+                ModifiedDate = o.modified_date?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
                 Deleted = o.deleted,
                 DeletedBy = o.deleted_by,
-                DeletedDate = o.deleted_date,
+                DeletedDate = o.deleted_date?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
             }).ToList();
         }
 

@@ -19,7 +19,6 @@ namespace smrp.Services
         {
             User? user = null;
             using var conn = ctx.CreateConnection();
-            conn.Open();
             var q = await conn.QuerySingleOrDefaultAsync(@"select id, username, first_name, last_name, password, last_login from app_user where id = @id limit 1", new { id });
             if (q != null)
             {
@@ -33,7 +32,6 @@ namespace smrp.Services
         {
             User? user = null;
             using var conn = ctx.CreateConnection();
-            conn.Open();
             var q = await conn.QuerySingleOrDefaultAsync(@"select id, username, first_name, last_name, password, last_login from app_user where username = @username limit 1", new { username });
             if (q != null)
             {
@@ -47,7 +45,6 @@ namespace smrp.Services
         {
             List<User> lx = new List<User>();
             using var conn = ctx.CreateConnection();
-            conn.Open();
             var q = await conn.QueryAsync(@$"select t.id, t.username, t.first_name, t.last_name, t.password, t.last_login from app_user t order by {sortBy} {sortDir} offset @offset limit @limit", new { offset, limit });
             lx = User.List(q, conn);
             
@@ -57,7 +54,6 @@ namespace smrp.Services
         public async Task<int> CountAsync()
         {
             using var conn = ctx.CreateConnection();
-            conn.Open();
             int q = await conn.ExecuteScalarAsync<int>(@"select count(id) from app_user");
                 
             return q;
@@ -66,7 +62,6 @@ namespace smrp.Services
         public async Task<bool> ExistsByOtherUsernameAsync(string username, long id)
         {
             using var conn = ctx.CreateConnection();
-            conn.Open();
             bool q = await conn.ExecuteScalarAsync<bool>(@"select exists (select 1 from app_user t where t.username = @username and t.id <> @id)", new { username, id });
 
             return q;
@@ -75,7 +70,6 @@ namespace smrp.Services
         public async Task<bool> ExistsByUsernameAsync(string username)
         {
             using var conn = ctx.CreateConnection();
-            conn.Open();
             bool q = await conn.ExecuteScalarAsync<bool>(@"select exists (select 1 from app_user t where t.username = @username)", new { username });
 
             return q;
@@ -85,7 +79,6 @@ namespace smrp.Services
         {
             List<User> lx = new List<User>();
             using var conn = ctx.CreateConnection();
-            conn.Open();
             var q = await conn.QueryAsync(@$"select t.id, t.username, t.first_name, t.last_name, t.password, t.last_login from app_user t where (t.username ilike @keyword or t.first_name ilike @keyword or t.last_name ilike @keyword) order by {sortBy} {sortDir} offset @offset limit @limit", new { keyword, offset, limit });
             lx = await User.ListAsync(q, conn);
 
@@ -95,7 +88,6 @@ namespace smrp.Services
         public async Task<int> CountByKeywordAsync(string keyword)
         {
             using var conn = ctx.CreateConnection();
-            conn.Open();
             int q = await conn.ExecuteScalarAsync<int>(@"select count(id) from app_user t where (t.username ilike @keyword or t.first_name ilike @keyword or t.last_name ilike @keyword)", new { keyword });
 
             return q;
@@ -105,7 +97,6 @@ namespace smrp.Services
         {
             string pwd = BCrypt.Net.BCrypt.HashPassword(o.Password);
             using var conn = ctx.CreateConnection();
-            conn.Open();
             using (var scope = new TransactionScope())
             {
                 var q = @"insert into app_user (id, username, password, first_name, last_name, active) values(nextval('app_user_id_seq'),@username,@pw,@firstName,@lastName,@active) returning id as app_user_id";
@@ -124,7 +115,6 @@ namespace smrp.Services
         public async Task UpdateAsync(User o)
         {
             using var conn = ctx.CreateConnection();
-            conn.Open();
             using (var scope = new TransactionScope())
             {
                 if (o.Password != "")
@@ -156,7 +146,6 @@ namespace smrp.Services
         public async Task DeleteByIdAsync(long id)
         {
             using var conn = ctx.CreateConnection();
-            conn.Open();
             using (var scope = new TransactionScope())
             {
                 var q = @"delete from app_user_roles where app_user_id = @id";
@@ -172,7 +161,6 @@ namespace smrp.Services
         public async Task UpdateLastLoginAsync(long id)
         {
             using var conn = ctx.CreateConnection();
-            conn.Open();
             await conn.ExecuteAsync(@"update app_user set last_login = now() where id = @id", new { id });
         }
 
@@ -180,7 +168,6 @@ namespace smrp.Services
         {
             string pw = BCrypt.Net.BCrypt.HashPassword(o.Password);
             using var conn = ctx.CreateConnection();
-            conn.Open();
             await conn.ExecuteAsync(@"update app_user set password = @password where id = @id", new { password = pw, id = o.Id });
         }
 

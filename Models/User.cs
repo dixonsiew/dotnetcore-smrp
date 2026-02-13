@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text.Json.Serialization;
 
@@ -23,7 +24,7 @@ namespace smrp.Models
         public required string Username { get; set; }
 
         [JsonPropertyName("last_login")]
-        public DateTime? LastLogin { get; set; }
+        public string? LastLogin { get; set; }
 
         public List<Role>? Roles { get; set; }
 
@@ -36,7 +37,7 @@ namespace smrp.Models
                 LastName = o.last_name,
                 Password = o.password,
                 Username = o.username,
-                LastLogin = o.last_login,
+                LastLogin = o.last_login?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
                 Roles = GetRoles(o.id, con),
             }).ToList();
         }
@@ -51,7 +52,7 @@ namespace smrp.Models
                 LastName = o.last_name,
                 Password = o.password,
                 Username = o.username,
-                LastLogin = o.last_login,
+                LastLogin = o.last_login?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
                 Roles = await GetRolesAsync(o.id, con),
             });
             var rx = await qs.ToListAsync();
@@ -88,7 +89,7 @@ namespace smrp.Models
                 LastName = o.last_name,
                 Password = o.password,
                 Username = o.username,
-                LastLogin = o.last_login,
+                LastLogin = o.last_login?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
                 Roles = await GetRolesAsync(o.id, con),
             };
         }

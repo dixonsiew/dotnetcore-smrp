@@ -8,28 +8,28 @@ using System.Security.Claims;
 
 namespace smrp.Controllers.Setup
 {
-    [Tags("Setup/DeliveryType")]
+    [Tags("Setup/Education")]
     [Route("api")]
     [ApiController]
     [Authorize]
-    public class DeliveryTypeController : ControllerBase
+    public class EducationController : ControllerBase
     {
         private readonly CommonSetupService commonSetupService;
-        private const string table = "delivery_type";
+        private const string table = "education";
 
-        public DeliveryTypeController(DefaultConnection conn)
+        public EducationController(DefaultConnection conn)
         {
             commonSetupService = new CommonSetupService(conn);
         }
 
-        [HttpGet("lookup/delivery-types")]
+        [HttpGet("lookup/educations")]
         public async Task<IResult> LookupList()
         {
             var ls = await commonSetupService.FindAllAsync(table, 0, 0, "", "");
             return Results.Json(ls);
         }
 
-        [HttpGet("delivery-types")]
+        [HttpGet("educations")]
         public async Task<IResult> List(
             [FromQuery(Name = "_page")] string page = "1",
             [FromQuery(Name = "_limit")] string limit = "20",
@@ -55,7 +55,7 @@ namespace smrp.Controllers.Setup
             return Results.Json(lx);
         }
 
-        [HttpPost("delivery-types")]
+        [HttpPost("educations")]
         public async Task<IResult> SearchList(
             KeywordDto data,
             [FromQuery(Name = "_page")] string page = "1",
@@ -83,7 +83,7 @@ namespace smrp.Controllers.Setup
             return Results.Json(lx);
         }
 
-        [HttpPost("delivery-type")]
+        [HttpPost("education")]
         public async Task<IResult> Create(CommonSetupDto data)
         {
             var userClaimsPrincipal = User;
@@ -108,7 +108,7 @@ namespace smrp.Controllers.Setup
             });
         }
 
-        [HttpGet("delivery-type/{id}")]
+        [HttpGet("education/{id}")]
         public async Task<IResult> Edit(long id)
         {
             var o = await commonSetupService.FindByIdAsync(id, table);
@@ -124,7 +124,7 @@ namespace smrp.Controllers.Setup
             return Results.Json(o);
         }
 
-        [HttpPut("delivery-type/{id}")]
+        [HttpPut("education/{id}")]
         public async Task<IResult> Update(CommonSetupDto data, long id)
         {
             var userClaimsPrincipal = User;
@@ -156,7 +156,7 @@ namespace smrp.Controllers.Setup
             });
         }
 
-        [HttpDelete("delivery-type/{id}")]
+        [HttpDelete("education/{id}")]
         public async Task<IResult> Delete(CommonSetupDto data, long id)
         {
             var userClaimsPrincipal = User;

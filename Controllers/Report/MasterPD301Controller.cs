@@ -1,5 +1,4 @@
-﻿using Amazon.Runtime.Internal.Transform;
-using Dapper;
+﻿using Dapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
@@ -17,6 +16,7 @@ using System.Text.Json;
 
 namespace smrp.Controllers.Report
 {
+    [Tags("Report/MasterPD301")]
     [Authorize]
     [Route("api/master-pd301")]
     [ApiController]
@@ -123,7 +123,7 @@ namespace smrp.Controllers.Report
                     { "refPersonCategoryCode",            await reportService.RefPersonCategoryCode(d) },
                     { "refRelationshipCode",              await reportService.RefRelationshipCode(d) },
                     { "totalDurationDay",                 "0" },
-                    { "admissionDate",                    fmt.Sprintf("%s %s:00", d["ADMISSION_DATE"], d["ADMISSION_TIME"]) },
+                    { "admissionDate",                    $"{d["ADMISSION_DATE"]} {d["ADMISSION_TIME"]}:00" },
                     { "refDischargeTypeCode",             await reportService.RefDischargeTypeCode(d) },
                     { "dischargeDateTime",                $"{d["DISCHARGE_DATE"]} {d["DISCHARGE_TIME"]}:00" },
                     { "refDischargeOfficerTypeCode",      "02" },
@@ -447,7 +447,6 @@ namespace smrp.Controllers.Report
 
             var qs = Sql.GetMasterPD301(vs);
             using var conn = rscon.CreateConnection();
-            conn.Open();
             var q = await conn.QueryAsync<dynamic>(qs, new { datefrom, dateto });
             List<string> colnames = new List<string>();
             List<BsonDocument> lx = new List<BsonDocument>();

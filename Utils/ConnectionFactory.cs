@@ -13,7 +13,12 @@ namespace smrp.Utils
             connectionString = config.GetConnectionString("DefaultConnection") ?? "";
         }
 
-        public IDbConnection CreateConnection() => new NpgsqlConnection(connectionString);
+        public IDbConnection CreateConnection()
+        {
+            var con = new NpgsqlConnection(connectionString);
+            con.Open();
+            return con;
+        }
     }
 
     public class RsConnection
@@ -25,6 +30,11 @@ namespace smrp.Utils
             connectionString = config.GetConnectionString("RsConnection") ?? "";
         }
 
-        public IDbConnection CreateConnection() => new OracleConnection(connectionString);
+        public IDbConnection CreateConnection()
+        {
+            var con = new OracleConnection(connectionString);
+            con.Open();
+            return con;
+        }
     }
 }

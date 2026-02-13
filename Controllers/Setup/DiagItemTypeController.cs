@@ -8,6 +8,7 @@ using System.Security.Claims;
 
 namespace smrp.Controllers.Setup
 {
+    [Tags("Setup/DiagItemType")]
     [Route("api")]
     [ApiController]
     [Authorize]
