@@ -61,7 +61,7 @@ namespace smrp.Controllers.Report
             var ls = Helper.ProcessDoc(lx);
 
             var dt1 = datefrom.Split("-");
-            var dt2 = datefrom.Split("-");
+            var dt2 = dateto.Split("-");
             var ds1 = $"{dt1[2]}{dt1[1]}{dt1[0]}";
             var ds2 = $"{dt2[2]}{dt2[1]}{dt2[0]}";
 
@@ -171,7 +171,7 @@ namespace smrp.Controllers.Report
             var ls = Helper.ProcessDoc(lx);
 
             var dt1 = datefrom.Split("-");
-            var dt2 = datefrom.Split("-");
+            var dt2 = dateto.Split("-");
             var ds1 = $"{dt1[2]}{dt1[1]}{dt1[0]}";
             var ds2 = $"{dt2[2]}{dt2[1]}{dt2[0]}";
 
