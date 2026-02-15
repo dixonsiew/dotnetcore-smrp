@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "adm_status";
 
-        public AdmStatusController(DefaultConnection conn)
+        public AdmStatusController(DefaultConnection conn, ILogger<AdmStatusController> logger)
         {
-            commonSetupService = new CommonSetupService(conn);
+            commonSetupService = new CommonSetupService(conn, logger);
         }
 
         [HttpGet("lookup/adm-statuses")]

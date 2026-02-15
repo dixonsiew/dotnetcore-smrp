@@ -14,9 +14,9 @@ namespace smrp.Controllers.Setup
         private readonly RoleService roleService;
         private const string table = "city";
 
-        public RoleController(DefaultConnection conn)
+        public RoleController(DefaultConnection conn, ILogger<RoleController> logger)
         {
-            roleService = new RoleService(conn);
+            roleService = new RoleService(conn, logger);
         }
 
         [HttpGet("lookup/groups")]

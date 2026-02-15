@@ -1,17 +1,18 @@
 ﻿using Dapper;
 using smrp.Models;
 using smrp.Utils;
-using System.Data;
 
 namespace smrp.Services
 {
     public class RoleService
     {
         private readonly DefaultConnection ctx;
+        private readonly ILogger logger;
 
-        public RoleService(DefaultConnection c)
+        public RoleService(DefaultConnection c, ILogger log)
         {
             ctx = c;
+            logger = log;
         }
 
         public async Task<List<Role>> FindAllAsync(string sortBy, string sortDir)

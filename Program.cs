@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using MongoDB.Driver;
-using MongoDB.Driver.Core.Configuration;
+using Serilog;
 using smrp;
 using smrp.Services;
 using smrp.Utils;
@@ -11,6 +11,13 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Host.UseSerilog((context, services, configuration) =>
+{
+    configuration
+    .ReadFrom.Configuration(context.Configuration)
+    .ReadFrom.Services(services);
+});
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IViewRenderService, ViewRenderService>();
@@ -79,6 +86,8 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 });
 
 var app = builder.Build();
+
+app.UseSerilogRequestLogging();
 
 string basePath = "smrp";
 app.UsePathBase($"/{basePath}");

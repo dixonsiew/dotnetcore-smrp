@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "title";
 
-        public TitleController(DefaultConnection conn)
+        public TitleController(DefaultConnection conn, ILogger<TitleController> logger)
         {
-            commonSetupService = new CommonSetupService(conn);
+            commonSetupService = new CommonSetupService(conn, logger);
         }
 
         [HttpGet("lookup/titles")]

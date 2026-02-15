@@ -18,9 +18,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "gender";
 
-        public GenderController(DefaultConnection conn)
+        public GenderController(DefaultConnection conn, ILogger<GenderController> logger)
         {
-            commonSetupService = new CommonSetupService(conn);
+            commonSetupService = new CommonSetupService(conn, logger);
         }
 
         [HttpGet("lookup/genders")]

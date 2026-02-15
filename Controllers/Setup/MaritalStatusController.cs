@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "marital_status";
 
-        public MaritalStatusController(DefaultConnection conn)
+        public MaritalStatusController(DefaultConnection conn, ILogger<MaritalStatusController> logger)
         {
-            commonSetupService = new CommonSetupService(conn);
+            commonSetupService = new CommonSetupService(conn, logger);
         }
 
         [HttpGet("lookup/marital-statuses")]

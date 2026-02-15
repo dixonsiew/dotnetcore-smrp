@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "speciality";
 
-        public SpecialityController(DefaultConnection conn)
+        public SpecialityController(DefaultConnection conn, ILogger<SpecialityController> logger)
         {
-            commonSetupService = new CommonSetupService(conn);
+            commonSetupService = new CommonSetupService(conn, logger);
         }
 
         [HttpGet("lookup/specialities")]

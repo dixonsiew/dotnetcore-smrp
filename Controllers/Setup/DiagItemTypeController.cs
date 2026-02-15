@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "diag_item_type";
 
-        public DiagItemTypeController(DefaultConnection conn)
+        public DiagItemTypeController(DefaultConnection conn, ILogger<DiagItemTypeController> logger)
         {
-            commonSetupService = new CommonSetupService(conn);
+            commonSetupService = new CommonSetupService(conn, logger);
         }
 
         [HttpGet("lookup/diag-item-types")]

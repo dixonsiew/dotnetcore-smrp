@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "person_category_code";
 
-        public PersonCategoryCodeController(DefaultConnection conn)
+        public PersonCategoryCodeController(DefaultConnection conn, ILogger<PersonCategoryCodeController> logger)
         {
-            commonSetupService = new CommonSetupService(conn);
+            commonSetupService = new CommonSetupService(conn, logger);
         }
 
         [HttpGet("lookup/person-category-codes")]

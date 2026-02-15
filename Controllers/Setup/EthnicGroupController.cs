@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "ethnic_group";
 
-        public EthnicGroupController(DefaultConnection conn)
+        public EthnicGroupController(DefaultConnection conn, ILogger<EthnicGroupController> logger)
         {
-            commonSetupService = new CommonSetupService(conn);
+            commonSetupService = new CommonSetupService(conn, logger);
         }
 
         [HttpGet("lookup/ethnic-groups")]

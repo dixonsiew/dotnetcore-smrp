@@ -18,9 +18,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "relationship";
 
-        public RelationshipController(DefaultConnection conn)
+        public RelationshipController(DefaultConnection conn, ILogger<RelationshipController> logger)
         {
-            commonSetupService = new CommonSetupService(conn);
+            commonSetupService = new CommonSetupService(conn, logger);
         }
 
         [HttpGet("lookup/relationships")]

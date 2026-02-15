@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "income";
 
-        public IncomeController(DefaultConnection conn)
+        public IncomeController(DefaultConnection conn, ILogger<IncomeController> logger)
         {
-            commonSetupService = new CommonSetupService(conn);
+            commonSetupService = new CommonSetupService(conn, logger);
         }
 
         [HttpGet("lookup/incomes")]

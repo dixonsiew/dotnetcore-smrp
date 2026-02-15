@@ -15,12 +15,10 @@ namespace smrp.Controllers.Setup
     {
         private readonly UserService userService;
         private readonly RoleService roleService;
-        private readonly IViewRenderService viewRenderService;
 
-        public UserController(DefaultConnection conn, IViewRenderService vs)
+        public UserController(DefaultConnection conn, ILogger<UserController> log)
         {
-            viewRenderService = vs;
-            userService = new UserService(conn);
+            userService = new UserService(conn, log);
             roleService = new RoleService(conn);
         }
 
