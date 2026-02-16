@@ -247,8 +247,6 @@ namespace smrp.Controllers.Report
             Response.Headers.Append(HeaderNames.CacheControl, "no-cache, no-store, must-revalidate");
             Response.Headers.Append(HeaderNames.Pragma, "no-cache");
             Response.Headers.Append(HeaderNames.Expires, "0");
-            Response.Headers.Append("filename", filename);
-            Response.Headers.Append(HeaderNames.ContentType, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 
             return Results.File(
                 fileContents: stream.ToArray(),
