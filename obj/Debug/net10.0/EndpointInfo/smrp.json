@@ -160,6 +160,18 @@
         ]
       }
     },
+    "/api/master-pd101/export/rpt1/xlsx": {
+      "get": {
+        "tags": [
+          "Report/MasterPD101"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/master-pd101/rpt1": {
       "get": {
         "tags": [

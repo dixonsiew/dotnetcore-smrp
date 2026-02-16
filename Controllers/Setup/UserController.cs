@@ -19,7 +19,7 @@ namespace smrp.Controllers.Setup
         public UserController(DefaultConnection conn, ILogger<UserController> log)
         {
             userService = new UserService(conn, log);
-            roleService = new RoleService(conn);
+            roleService = new RoleService(conn, log);
         }
 
         [HttpGet("test")]

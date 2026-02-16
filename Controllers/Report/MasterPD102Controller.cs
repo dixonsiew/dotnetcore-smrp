@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using ClosedXML.Excel;
+using Dapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
@@ -29,12 +30,12 @@ namespace smrp.Controllers.Report
         private readonly ReportService reportService;
         private readonly JsonSerializerOptions jsonOptions;
 
-        public MasterPD102Controller(DefaultConnection conn, RsConnection rsconn, IConfiguration cfg, IMongoClient cli)
+        public MasterPD102Controller(DefaultConnection conn, RsConnection rsconn, IConfiguration cfg, IMongoClient cli, ILogger<MasterPD102Controller> logger)
         {
             rscon = rsconn;
             config = cfg;
             client = cli;
-            commonSetupService = new CommonSetupService(conn);
+            commonSetupService = new CommonSetupService(conn, logger);
             reportService = new ReportService(conn, commonSetupService);
             jsonOptions = new JsonSerializerOptions
             {
@@ -178,6 +179,82 @@ namespace smrp.Controllers.Report
                 forms,
             };
             return Results.Json(data, jsonOptions, MediaTypeNames.Application.Json);
+        }
+
+        [HttpGet("export/rpt1/xlsx")]
+        public async Task<IResult> Xlsx(
+            [FromQuery(Name = "vt")] string vt = "0",
+            [FromQuery(Name = "datefrom")] string datefrom = "",
+            [FromQuery(Name = "dateto")] string dateto = "")
+        {
+            var userClaimsPrincipal = User;
+            var username = userClaimsPrincipal.FindFirst(ClaimTypes.Name)?.Value;
+            if (username == null)
+            {
+                return ApiResult.UserNotFound;
+            }
+
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var col = GetCollection(client, username);
+            var lx = await col.Find(filter).ToListAsync();
+            var ls = Helper.ProcessDoc(lx);
+
+            var dt1 = datefrom.Split("-");
+            var dt2 = dateto.Split("-");
+            var ds1 = $"{dt1[2]}{dt1[1]}{dt1[0]}";
+            var ds2 = $"{dt2[2]}{dt2[1]}{dt2[0]}";
+            var pf = "PD102";
+            
+            var facilityCode = config["facilityCode"];
+            var filename = $"{facilityCode}_{ds1}_{ds2}_{pf}.xlsx";
+
+            using var workbook = new XLWorkbook();
+            var worksheet = workbook.Worksheets.Add("Sheet1");
+
+            foreach (var cx in RptColMap.COLUMN_MAP)
+            {
+                int j = 1;
+                worksheet.Cell(1, j).Style.Font.Bold = true;
+                worksheet.Cell(1, j).Value = cx.Text;
+                ++j;
+            }
+
+            int k = 2;
+            foreach (var x in ls)
+            {
+                foreach (var cx in RptColMap.COLUMN_MAP)
+                {
+                    int j = 1;
+                    var field = cx.Field;
+                    var s = "";
+                    if (x.Contains(field))
+                    {
+                        s = Helper.GetStr(x[field]);
+                    }
+
+                    worksheet.Cell(k, j).Value = s;
+                }
+
+                ++k;
+            }
+
+            worksheet.Columns().AdjustToContents();
+            using var stream = new MemoryStream();
+            workbook.SaveAs(stream);
+            stream.Seek(0, SeekOrigin.Begin);
+
+            Response.Headers.Append(HeaderNames.ContentDisposition, $"attachment; filename={filename}");
+            Response.Headers.Append(HeaderNames.CacheControl, "no-cache, no-store, must-revalidate");
+            Response.Headers.Append(HeaderNames.Pragma, "no-cache");
+            Response.Headers.Append(HeaderNames.Expires, "0");
+            Response.Headers.Append("filename", filename);
+            Response.Headers.Append(HeaderNames.ContentType, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+
+            return Results.File(
+                fileContents: stream.ToArray(),
+                contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                fileDownloadName: filename
+            );
         }
 
         [HttpGet("rpt1")]

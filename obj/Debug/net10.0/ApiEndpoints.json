@@ -2300,6 +2300,19 @@
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
+    "Method": "Xlsx",
+    "RelativePath": "api/master-pd101/export/rpt1/xlsx",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD101"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD101Controller",
     "Method": "JsonRH101",
     "RelativePath": "api/master-pd101/export/rpt2",
     "HttpMethod": "GET",

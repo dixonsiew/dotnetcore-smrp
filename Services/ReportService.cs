@@ -1,6 +1,5 @@
 ﻿using MongoDB.Bson;
 using smrp.Utils;
-using System.Threading.Tasks;
 
 namespace smrp.Services
 {
