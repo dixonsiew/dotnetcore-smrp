@@ -338,10 +338,10 @@ namespace smrp.Controllers.Report
             Response.Headers.Append(HeaderNames.Pragma, "no-cache");
             Response.Headers.Append(HeaderNames.Expires, "0");
 
-            return Results.File(
-                fileContents: stream.ToArray(),
-                contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                fileDownloadName: filename
+            return Results.Bytes(
+                stream.ToArray(),
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                filename
             );
         }
 
