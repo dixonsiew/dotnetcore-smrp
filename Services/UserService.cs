@@ -10,9 +10,9 @@ namespace smrp.Services
     public class UserService
     {
         private readonly DefaultConnection ctx;
-        private readonly ILogger logger;
+        private readonly ILogger<UserService> logger;
 
-        public UserService(DefaultConnection c, ILogger log)
+        public UserService(DefaultConnection c, ILogger<UserService> log)
         {
             ctx = c;
             logger = log;

@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "referral";
 
-        public ReferralController(DefaultConnection conn, ILogger<ReferralController> logger)
+        public ReferralController(ILogger<ReferralController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/referrals")]

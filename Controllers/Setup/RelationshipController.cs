@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using smrp.Dtos;
 using smrp.Models;
@@ -18,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "relationship";
 
-        public RelationshipController(DefaultConnection conn, ILogger<RelationshipController> logger)
+        public RelationshipController(ILogger<RelationshipController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/relationships")]

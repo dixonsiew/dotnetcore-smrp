@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "city";
 
-        public CityController(DefaultConnection conn, ILogger<CityController> logger)
+        public CityController(ILogger<CityController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/cities")]

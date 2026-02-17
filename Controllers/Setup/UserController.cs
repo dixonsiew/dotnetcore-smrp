@@ -16,10 +16,10 @@ namespace smrp.Controllers.Setup
         private readonly UserService userService;
         private readonly RoleService roleService;
 
-        public UserController(DefaultConnection conn, ILogger<UserController> log)
+        public UserController(ILogger<UserController> logger, RoleService rs, UserService us)
         {
-            userService = new UserService(conn, log);
-            roleService = new RoleService(conn, log);
+            userService = us;
+            roleService = rs;
         }
 
         [HttpGet("test")]

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using smrp.Services;
-using smrp.Utils;
 
 namespace smrp.Controllers.Setup
 {
@@ -12,11 +11,10 @@ namespace smrp.Controllers.Setup
     public class RoleController : ControllerBase
     {
         private readonly RoleService roleService;
-        private const string table = "city";
 
-        public RoleController(DefaultConnection conn, ILogger<RoleController> logger)
+        public RoleController(ILogger<RoleController> logger, RoleService rs)
         {
-            roleService = new RoleService(conn, logger);
+            roleService = rs;
         }
 
         [HttpGet("lookup/groups")]

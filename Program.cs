@@ -62,6 +62,11 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddScoped<DefaultConnection>();
 builder.Services.AddScoped<RsConnection>();
 builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetConnectionString("MongoDbConnection")));
+builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<CommonSetupService>();
+builder.Services.AddScoped<ReportService>();
+builder.Services.AddScoped<RoleService>();
+builder.Services.AddScoped<UserService>();
 builder.Services.AddAuthentication(o =>
 {
     o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

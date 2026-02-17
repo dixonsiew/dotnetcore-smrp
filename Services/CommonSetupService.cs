@@ -7,9 +7,9 @@ namespace smrp.Services
     public class CommonSetupService
     {
         private readonly DefaultConnection ctx;
-        private readonly ILogger logger;
+        private readonly ILogger<CommonSetupService> logger;
 
-        public CommonSetupService(DefaultConnection c, ILogger log)
+        public CommonSetupService(DefaultConnection c, ILogger<CommonSetupService> log)
         {
             ctx = c;
             logger = log;

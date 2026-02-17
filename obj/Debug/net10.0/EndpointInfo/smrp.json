@@ -165,11 +165,42 @@
         "tags": [
           "Report/MasterPD101"
         ],
+        "parameters": [
+          {
+            "name": "vt",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "0"
+            }
+          },
+          {
+            "name": "datefrom",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "dateto",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
       }
     },
     "/api/master-pd101/rpt1": {
@@ -390,6 +421,49 @@
         ]
       }
     },
+    "/api/master-pd102/export/rpt1/xlsx": {
+      "get": {
+        "tags": [
+          "Report/MasterPD102"
+        ],
+        "parameters": [
+          {
+            "name": "vt",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "0"
+            }
+          },
+          {
+            "name": "datefrom",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "dateto",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
+      }
+    },
     "/api/master-pd102/rpt1": {
       "get": {
         "tags": [
@@ -563,6 +637,49 @@
           "Report/MasterPD105"
         ],
         "parameters": [
+          {
+            "name": "datefrom",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "dateto",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/master-pd105/export/rpt1/xlsx": {
+      "get": {
+        "tags": [
+          "Report/MasterPD105"
+        ],
+        "parameters": [
+          {
+            "name": "vt",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "0"
+            }
+          },
           {
             "name": "datefrom",
             "in": "query",
@@ -800,6 +917,49 @@
           "Report/MasterPD301"
         ],
         "parameters": [
+          {
+            "name": "datefrom",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "dateto",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/master-pd301/export/rpt1/xlsx": {
+      "get": {
+        "tags": [
+          "Report/MasterPD301"
+        ],
+        "parameters": [
+          {
+            "name": "vt",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "0"
+            }
+          },
           {
             "name": "datefrom",
             "in": "query",

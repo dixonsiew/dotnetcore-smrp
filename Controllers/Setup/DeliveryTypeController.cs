@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "delivery_type";
 
-        public DeliveryTypeController(DefaultConnection conn, ILogger<DeliveryTypeController> logger)
+        public DeliveryTypeController(ILogger<DeliveryTypeController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/delivery-types")]

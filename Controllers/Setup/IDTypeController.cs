@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "id_type";
 
-        public IDTypeController(DefaultConnection conn, ILogger<IDTypeController> logger)
+        public IDTypeController(ILogger<IDTypeController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/id-types")]

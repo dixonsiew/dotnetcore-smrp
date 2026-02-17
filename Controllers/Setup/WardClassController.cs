@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "ward_class";
 
-        public WardClassController(DefaultConnection conn, ILogger<WardClassController> logger)
+        public WardClassController(ILogger<WardClassController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/ward-classes")]

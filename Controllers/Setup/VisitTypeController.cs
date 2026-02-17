@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "visit_type";
 
-        public VisitTypeController(DefaultConnection conn, ILogger<VisitTypeController> logger)
+        public VisitTypeController(ILogger<VisitTypeController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/visit-types")]

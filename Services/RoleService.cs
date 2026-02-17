@@ -7,9 +7,9 @@ namespace smrp.Services
     public class RoleService
     {
         private readonly DefaultConnection ctx;
-        private readonly ILogger logger;
+        private readonly ILogger<RoleService> logger;
 
-        public RoleService(DefaultConnection c, ILogger log)
+        public RoleService(DefaultConnection c, ILogger<RoleService> log)
         {
             ctx = c;
             logger = log;

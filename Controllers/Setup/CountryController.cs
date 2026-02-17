@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "country";
 
-        public CountryController(DefaultConnection conn, ILogger<CountryController> logger)
+        public CountryController(ILogger<CountryController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/countries")]

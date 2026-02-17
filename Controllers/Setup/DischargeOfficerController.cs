@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "discharge_officer";
 
-        public DischargeOfficerController(DefaultConnection conn, ILogger<DischargeOfficerController> logger)
+        public DischargeOfficerController(ILogger<DischargeOfficerController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/discharge-officers")]

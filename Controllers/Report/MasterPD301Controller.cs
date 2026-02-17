@@ -30,13 +30,13 @@ namespace smrp.Controllers.Report
         private readonly ReportService reportService;
         private readonly JsonSerializerOptions jsonOptions;
 
-        public MasterPD301Controller(DefaultConnection conn, RsConnection rsconn, IConfiguration cfg, IMongoClient cli, ILogger<MasterPD301Controller> logger)
+        public MasterPD301Controller(RsConnection rsconn, IConfiguration cfg, IMongoClient cli, ILogger<MasterPD301Controller> logger, CommonSetupService cs, ReportService rs)
         {
             rscon = rsconn;
             config = cfg;
             client = cli;
-            commonSetupService = new CommonSetupService(conn, logger);
-            reportService = new ReportService(conn, commonSetupService);
+            commonSetupService = cs;
+            reportService = rs;
             jsonOptions = new JsonSerializerOptions
             {
                 WriteIndented = true,

@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "education";
 
-        public EducationController(DefaultConnection conn, ILogger<EducationController> logger)
+        public EducationController(ILogger<EducationController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/educations")]

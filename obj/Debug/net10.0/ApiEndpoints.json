@@ -2305,7 +2305,23 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "vt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "datefrom",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dateto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [],
     "Tags": [
       "Report/MasterPD101"
@@ -2472,6 +2488,35 @@
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD102Controller",
+    "Method": "Xlsx",
+    "RelativePath": "api/master-pd102/export/rpt1/xlsx",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "datefrom",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dateto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD102"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD102Controller",
     "Method": "List",
     "RelativePath": "api/master-pd102/rpt1",
     "HttpMethod": "GET",
@@ -2597,6 +2642,35 @@
   },
   {
     "ContainingType": "smrp.Controllers.Report.MasterPD105Controller",
+    "Method": "Xlsx",
+    "RelativePath": "api/master-pd105/export/rpt1/xlsx",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "datefrom",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dateto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD105"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD105Controller",
     "Method": "List",
     "RelativePath": "api/master-pd105/rpt1",
     "HttpMethod": "GET",
@@ -2704,6 +2778,35 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "datefrom",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dateto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "Tags": [
+      "Report/MasterPD301"
+    ]
+  },
+  {
+    "ContainingType": "smrp.Controllers.Report.MasterPD301Controller",
+    "Method": "Xlsx",
+    "RelativePath": "api/master-pd301/export/rpt1/xlsx",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
       {
         "Name": "datefrom",
         "Type": "System.String",

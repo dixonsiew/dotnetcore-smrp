@@ -14,10 +14,10 @@ namespace smrp.Controllers
         private readonly TokenService tokenService;
         private readonly UserService userService;
 
-        public AuthController(DefaultConnection conn, IConfiguration config, ILogger<AuthController> logger)
+        public AuthController(ILogger<AuthController> logger, TokenService ts, UserService us)
         {
-            tokenService = new TokenService(config);
-            userService = new UserService(conn, logger);
+            tokenService = ts;
+            userService = us;
         }
 
         [HttpPost("o/token")]

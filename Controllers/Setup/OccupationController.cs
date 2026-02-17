@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "occupation";
 
-        public OccupationController(DefaultConnection conn, ILogger<OccupationController> logger)
+        public OccupationController(ILogger<OccupationController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/occupations")]

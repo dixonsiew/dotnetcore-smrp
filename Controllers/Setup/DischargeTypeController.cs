@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "discharge_type";
 
-        public DischargeTypeController(DefaultConnection conn, ILogger<DischargeTypeController> logger)
+        public DischargeTypeController(ILogger<DischargeTypeController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/discharge-types")]

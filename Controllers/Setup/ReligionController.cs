@@ -17,9 +17,9 @@ namespace smrp.Controllers.Setup
         private readonly CommonSetupService commonSetupService;
         private const string table = "religion";
 
-        public ReligionController(DefaultConnection conn, ILogger<ReligionController> logger)
+        public ReligionController(ILogger<ReligionController> logger, CommonSetupService cs)
         {
-            commonSetupService = new CommonSetupService(conn, logger);
+            commonSetupService = cs;
         }
 
         [HttpGet("lookup/religions")]
