@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using MongoDB.Driver;
@@ -7,6 +8,7 @@ using smrp;
 using smrp.Services;
 using smrp.Utils;
 using System.Text;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -106,6 +108,33 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseExceptionHandler(e =>
+{
+    e.Run(async context =>
+    {
+        context.Response.ContentType = "application/json";
+
+        var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+        if (contextFeature != null)
+        {
+            var exception = contextFeature.Error;
+
+            // Set status code based on exception
+            context.Response.StatusCode = exception switch
+            {
+                UnauthorizedAccessException => StatusCodes.Status401Unauthorized,
+                BadHttpRequestException => StatusCodes.Status400BadRequest,
+                _ => StatusCodes.Status500InternalServerError
+            };
+
+            await context.Response.WriteAsJsonAsync(new
+            {
+                statusCode = context.Response.StatusCode,
+                message = exception.Message,
+            });
+        }
+    });
+});
 
 app.UseSwagger();
 app.UseSwaggerUI(c =>

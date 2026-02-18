@@ -24,21 +24,19 @@ namespace smrp.Controllers
         [AllowAnonymous]
         public async Task<IResult> Login(LoginDto data)
         {
-            var mx = new { statusCode = StatusCodes.Status401Unauthorized, message = "Invalid Credentials" };
-
             try
             {
                 var user = await userService.FindByUsernameAsync(data.Username);
                 if (user == null)
                 {
-                    return Results.Json(mx, statusCode: StatusCodes.Status401Unauthorized);
+                    throw new Exception();
                 }
 
                 bool valid = false;
                 valid = userService.ValidateCredentials(user, data.Password);
                 if (!valid)
                 {
-                    return Results.Json(mx, statusCode: StatusCodes.Status401Unauthorized);
+                    throw new Exception();
                 }
 
                 await userService.UpdateLastLoginAsync(user.Id);
@@ -54,7 +52,7 @@ namespace smrp.Controllers
             
             catch (Exception)
             {
-                return Results.Json(mx, statusCode: StatusCodes.Status401Unauthorized);
+                throw new UnauthorizedAccessException("Invalid Credentials");
             }
         }
 
@@ -116,11 +114,7 @@ namespace smrp.Controllers
 
                 if (data.Password != data.ConfirmPassword)
                 {
-                    return Results.Json(new
-                    {
-                        statusCode = StatusCodes.Status400BadRequest,
-                        message = "Confirm Password does not match",
-                    }, statusCode: StatusCodes.Status400BadRequest);
+                    throw new Exception("Confirm Password does not match");
                 }
 
                 user.Password = data.Password;
@@ -133,12 +127,31 @@ namespace smrp.Controllers
 
             catch (Exception ex)
             {
-                return Results.Json(new
-                {
-                    statusCode = StatusCodes.Status400BadRequest,
-                    message = ex.Message,
-                }, statusCode: StatusCodes.Status400BadRequest);
+                throw new BadHttpRequestException(ex.Message);
             }
+        }
+
+        [HttpGet("rapidoc")]
+        [AllowAnonymous]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public IResult Rapidoc()
+        {
+            return Results.Redirect("/rapidoc.html", permanent: true);
+        }
+
+        [HttpGet("swagger")]
+        [AllowAnonymous]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public IResult SwaggerUI()
+        {
+            return Results.Redirect("/swagger-ui/index.html", permanent: true);
+        }
+
+        [HttpGet("test")]
+        [AllowAnonymous]
+        public IResult Test()
+        {
+            throw new BadHttpRequestException("This is a test exception for global error handling.");
         }
     }
 }

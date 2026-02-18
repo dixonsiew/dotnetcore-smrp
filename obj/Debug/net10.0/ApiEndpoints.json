@@ -4577,5 +4577,35 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.AuthController",
+    "Method": "Rapidoc",
+    "RelativePath": "rapidoc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.AuthController",
+    "Method": "SwaggerUI",
+    "RelativePath": "swagger",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.AuthController",
+    "Method": "Test",
+    "RelativePath": "test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]
