@@ -2704,23 +2704,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {},
+    "C:\\Users\\SIEW WING FEI\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\repo\\dotnetcore-smrp\\smrp.csproj",
+      "projectUniqueName": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\smrp.csproj",
       "projectName": "smrp",
-      "projectPath": "C:\\repo\\dotnetcore-smrp\\smrp.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\repo\\dotnetcore-smrp\\obj\\",
+      "projectPath": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\smrp.csproj",
+      "packagesPath": "C:\\Users\\SIEW WING FEI\\.nuget\\packages\\",
+      "outputPath": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SIEW WING FEI\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
