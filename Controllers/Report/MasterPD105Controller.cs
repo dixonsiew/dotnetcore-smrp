@@ -196,9 +196,9 @@ namespace smrp.Controllers.Report
             using var workbook = new XLWorkbook();
             var worksheet = workbook.Worksheets.Add("Sheet1");
 
+            int j = 1;
             foreach (var cx in RptColMap.COLUMN_MAP)
             {
-                int j = 1;
                 worksheet.Cell(1, j).Style.Font.Bold = true;
                 worksheet.Cell(1, j).Value = cx.Text;
                 ++j;
@@ -207,9 +207,9 @@ namespace smrp.Controllers.Report
             int k = 2;
             foreach (var x in ls)
             {
+                j = 1;
                 foreach (var cx in RptColMap.COLUMN_MAP)
                 {
-                    int j = 1;
                     var field = cx.Field;
                     var s = "";
                     if (x.Contains(field))
@@ -218,6 +218,7 @@ namespace smrp.Controllers.Report
                     }
 
                     worksheet.Cell(k, j).Value = s;
+                    ++j;
                 }
 
                 ++k;
