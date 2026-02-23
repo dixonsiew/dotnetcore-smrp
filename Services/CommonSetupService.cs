@@ -26,14 +26,15 @@ namespace smrp.Services
                 {
                     o = CommonSetup.Single(q);
                 }
+
+                return o;
             }
 
             catch (Exception ex)
             {
                 logger.LogError(ex, $"Error finding {table} by id {id}");
+                throw;
             }
-
-            return o;
         }
 
         public async Task<CommonSetup?> FindByDescAsync(string desc, string table)
@@ -47,14 +48,15 @@ namespace smrp.Services
                 {
                     o = CommonSetup.Single(q);
                 }
+
+                return o;
             }
             
             catch (Exception ex)
             {
                 logger.LogError(ex, $"Error finding {table} by desc {desc}");
+                throw;
             }
-
-            return o;
         }
 
         public async Task<List<CommonSetup>> FindAllAsync(string table, int offset, int limit, string sortBy, string sortDir)
@@ -75,66 +77,64 @@ namespace smrp.Services
                     var q = await conn.QueryAsync(@$"select t.id, t.code, t.desc, t.ref reff, t.created_by, t.created_date, t.modified_by, t.modified_date, t.deleted, t.deleted_by, t.deleted_date from {table} t where t.desc <> '' and t.deleted is not true order by t.code");
                     lx = CommonSetup.List(q);
                 }
+
+                return lx;
             }
 
             catch (Exception ex)
             {
                 logger.LogError(ex, $"Error finding all {table}");
+                throw;
             }
-
-            return lx;
         }
 
         public async Task<int> CountAsync(string table)
         {
-            int q = 0;
             try
             {
                 using var conn = ctx.CreateConnection();
-                q = await conn.ExecuteScalarAsync<int>(@$"select count(id) from {table} t where t.deleted is not true");
+                int q = await conn.ExecuteScalarAsync<int>(@$"select count(id) from {table} t where t.deleted is not true");
+                return q;
             }
             
             catch (Exception ex)
             {
                 logger.LogError(ex, $"Error counting {table}");
+                throw;
             }
-
-            return q;
         }
 
         public async Task<List<CommonSetup>> FindByKeywordAsync(string keyword, int offset, int limit, string sortBy, string sortDir, string table)
         {
-            List<CommonSetup> lx = new List<CommonSetup>();
             try
             {
                 using var conn = ctx.CreateConnection();
                 var q = await conn.QueryAsync(@$"select t.id, t.code, t.desc, t.ref reff, t.created_by, t.created_date, t.modified_by, t.modified_date, t.deleted, t.deleted_by, t.deleted_date from {table} t where (t.code ilike @keyword or t.desc ilike @keyword or t.ref ilike @keyword) and t.deleted is not true order by ""{sortBy}"" {sortDir} offset @offset limit @limit", new { keyword, offset, limit });
-                lx = CommonSetup.List(q);
+                var lx = CommonSetup.List(q);
+                return lx;
             }
 
             catch (Exception ex)
             {
                 logger.LogError(ex, $"Error finding {table} by keyword {keyword}");
+                throw;
             }
-
-            return lx;
         }
 
         public async Task<int> CountByKeywordAsync(string keyword, string table)
         {
-            int q = 0;
             try
             {
                 using var conn = ctx.CreateConnection();
-                q = await conn.ExecuteScalarAsync<int>(@$"select count(id) from {table} t where (t.code ilike @keyword or t.desc ilike @keyword or t.ref ilike @keyword) and t.deleted is not true", new { keyword });
+                int q = await conn.ExecuteScalarAsync<int>(@$"select count(id) from {table} t where (t.code ilike @keyword or t.desc ilike @keyword or t.ref ilike @keyword) and t.deleted is not true", new { keyword });
+                return q;
             }
             
             catch (Exception ex)
             {
                 logger.LogError(ex, $"Error counting {table} by keyword {keyword}");
+                throw;
             }
-
-            return q;
         }
 
         public async Task SaveAsync(CommonSetup o, string table)
@@ -149,6 +149,7 @@ namespace smrp.Services
             catch (Exception ex)
             {
                 logger.LogError(ex, $"Error saving {table} with code {o.Code}");
+                throw;
             }
         }
 
@@ -164,6 +165,7 @@ namespace smrp.Services
             catch (Exception ex)
             {
                 logger.LogError(ex, $"Error updating {table} with id {o.Id}");
+                throw;
             }
         }
 
@@ -179,6 +181,7 @@ namespace smrp.Services
             catch (Exception ex)
             {
                 logger.LogError(ex, $"Error deleting {table} with id {id}");
+                throw;
             }
         }
     }

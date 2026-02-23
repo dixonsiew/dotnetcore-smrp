@@ -4564,6 +4564,22 @@
   },
   {
     "ContainingType": "smrp.Controllers.AuthController",
+    "Method": "Refresh",
+    "RelativePath": "o/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "smrp.Dtos.RefreshTokenDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "o/token",
     "HttpMethod": "POST",

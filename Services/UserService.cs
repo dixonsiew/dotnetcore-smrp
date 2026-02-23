@@ -1,8 +1,6 @@
 ﻿using Dapper;
-using smrp.Controllers;
 using smrp.Models;
 using smrp.Utils;
-using System.Data;
 using System.Transactions;
 
 namespace smrp.Services
@@ -29,14 +27,15 @@ namespace smrp.Services
                 {
                     user = await User.SingleAsync(q, conn);
                 }
+
+                return user;
             }
             
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error finding user by id: {Id}", id);
+                throw;
             }
-
-            return user;
         }
 
         public async Task<User?> FindByUsernameAsync(string username)
@@ -50,120 +49,113 @@ namespace smrp.Services
                 {
                     user = await User.SingleAsync(q, conn);
                 }
+
+                return user;
             }
             
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error finding user by username: {Username}", username);
+                throw;
             }
-
-            return user;
         }
 
         public async Task<List<User>> FindAllAsync(int offset, int limit, string sortBy, string sortDir)
         {
-            List<User> lx = new List<User>();
             try
             {
                 using var conn = ctx.CreateConnection();
                 var q = await conn.QueryAsync(@$"select t.id, t.username, t.first_name, t.last_name, t.password, t.last_login from app_user t order by {sortBy} {sortDir} offset @offset limit @limit", new { offset, limit });
-                lx = User.List(q, conn);
-
+                var lx = User.List(q, conn);
                 return lx;
             }
             
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error finding all users with offset: {Offset}, limit: {Limit}, sortBy: {SortBy}, sortDir: {SortDir}", offset, limit, sortBy, sortDir);
+                throw;
             }
-
-            return lx;
         }
 
         public async Task<int> CountAsync()
         {
-            int q = 0;
             try
             {
                 using var conn = ctx.CreateConnection();
-                q = await conn.ExecuteScalarAsync<int>(@"select count(id) from app_user");
+                int q = await conn.ExecuteScalarAsync<int>(@"select count(id) from app_user");
+                return q;
             }
             
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error counting users");
+                throw;
             }
-
-            return q;
         }
 
         public async Task<bool> ExistsByOtherUsernameAsync(string username, long id)
         {
-            bool q = false;
             try
             {
                 using var conn = ctx.CreateConnection();
-                q = await conn.ExecuteScalarAsync<bool>(@"select exists (select 1 from app_user t where t.username = @username and t.id <> @id)", new { username, id });
+                bool q = await conn.ExecuteScalarAsync<bool>(@"select exists (select 1 from app_user t where t.username = @username and t.id <> @id)", new { username, id });
+                return q;
             }
             
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error checking if other user exists with username: {Username} and id: {Id}", username, id);
+                throw;
             }
-
-            return q;
         }
 
         public async Task<bool> ExistsByUsernameAsync(string username)
         {
-            bool q = false;
             try
             {
                 using var conn = ctx.CreateConnection();
-                q = await conn.ExecuteScalarAsync<bool>(@"select exists (select 1 from app_user t where t.username = @username)", new { username });
+                bool q = await conn.ExecuteScalarAsync<bool>(@"select exists (select 1 from app_user t where t.username = @username)", new { username });
+                return q;
             }
             
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error checking if user exists with username: {Username}", username);
+                throw;
             }
-
-            return q;
         }
 
         public async Task<List<User>> FindByKeywordAsync(string keyword, int offset, int limit, string sortBy, string sortDir)
         {
-            List<User> lx = new List<User>();
             try
             {
                 using var conn = ctx.CreateConnection();
                 var q = await conn.QueryAsync(@$"select t.id, t.username, t.first_name, t.last_name, t.password, t.last_login from app_user t where (t.username ilike @keyword or t.first_name ilike @keyword or t.last_name ilike @keyword) order by {sortBy} {sortDir} offset @offset limit @limit", new { keyword, offset, limit });
-                lx = await User.ListAsync(q, conn);
+                var lx = await User.ListAsync(q, conn);
+                return lx;
             }
 
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error finding users by keyword: {Keyword} with offset: {Offset}, limit: {Limit}, sortBy: {SortBy}, sortDir: {SortDir}", keyword, offset, limit, sortBy, sortDir);
+                throw;
             }
-
-            return lx;
         }
 
         public async Task<int> CountByKeywordAsync(string keyword)
         {
-            int q = 0;
             try
             {
                 using var conn = ctx.CreateConnection();
-                q = await conn.ExecuteScalarAsync<int>(@"select count(id) from app_user t where (t.username ilike @keyword or t.first_name ilike @keyword or t.last_name ilike @keyword)", new { keyword });
+                int q = await conn.ExecuteScalarAsync<int>(@"select count(id) from app_user t where (t.username ilike @keyword or t.first_name ilike @keyword or t.last_name ilike @keyword)", new { keyword });
+                return q;
             }
 
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error counting users by keyword: {Keyword}", keyword);
+                throw;
             }
-
-            return q;
         }
 
         public async Task SaveAsync(User o)
@@ -190,6 +182,7 @@ namespace smrp.Services
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error saving user with username: {Username}", o.Username);
+                throw;
             }
         }
 
@@ -229,6 +222,7 @@ namespace smrp.Services
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error updating user with id: {Id}", o.Id);
+                throw;
             }
         }
 
@@ -252,6 +246,7 @@ namespace smrp.Services
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error deleting user with id: {Id}", id);
+                throw;
             }
         }
 
@@ -266,6 +261,7 @@ namespace smrp.Services
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error updating last login for user with id: {Id}", id);
+                throw;
             }
         }
 
@@ -281,6 +277,7 @@ namespace smrp.Services
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error updating password for user with id: {Id}", o.Id);
+                throw;
             }
         }
 

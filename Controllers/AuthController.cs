@@ -56,6 +56,40 @@ namespace smrp.Controllers
             }
         }
 
+        [HttpPost("o/refresh-token")]
+        [Authorize]
+        public async Task<IResult> Refresh(RefreshTokenDto data)
+        {
+            try
+            {
+                var userClaimsPrincipal = tokenService.GetPrincipalFromExpiredToken(data.RefreshToken);
+                var userId = userClaimsPrincipal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (userId == null)
+                {
+                    throw new Exception();
+                }
+
+                int id = Convert.ToInt32(userId);
+                var user = await userService.FindByIdAsync(id);
+                if (user == null)
+                {
+                    throw new Exception();
+                }
+
+                string token = tokenService.GenerateRefreshToken(user);
+                return Results.Json(new
+                {
+                    type = "bearer",
+                    token,
+                });
+            }
+
+            catch (Exception)
+            {
+                throw new UnauthorizedAccessException("Invalid Credentials");
+            }
+        }
+
         [HttpGet("api/current-user")]
         [Authorize]
         public async Task<IResult> UserDetails()

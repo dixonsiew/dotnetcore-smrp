@@ -64,7 +64,9 @@ namespace smrp.Services
             var tokenValidationParameters = new TokenValidationParameters
             {
                 ValidateAudience = true,
+                ValidAudience = config["Jwt:Audience"],
                 ValidateIssuer = true,
+                ValidIssuer = config["Jwt:Issuer"],
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"] ?? "")),
                 ValidateLifetime = false // We want to get claims from expired token

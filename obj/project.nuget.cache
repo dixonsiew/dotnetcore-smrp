@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "usTACkyeT5I=",
+  "dgSpecHash": "8LlcxfRoadI=",
   "success": true,
-  "projectFilePath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+  "projectFilePath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
@@ -73,9 +73,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Package 'Microsoft.AspNet.WebApi.Client 4.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
-      "projectPath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "projectPath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "filePath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "libraryId": "Microsoft.AspNet.WebApi.Client",
       "targetGraphs": [
         "net10.0"
@@ -85,9 +85,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Package 'Microsoft.AspNet.WebApi.Core 4.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
-      "projectPath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "projectPath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "filePath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
       "targetGraphs": [
         "net10.0"
@@ -97,9 +97,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Package 'Microsoft.AspNet.WebApi.WebHost 4.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
-      "projectPath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "projectPath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "filePath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "libraryId": "Microsoft.AspNet.WebApi.WebHost",
       "targetGraphs": [
         "net10.0"
@@ -109,9 +109,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Package 'Microsoft.Net.Http 2.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
-      "projectPath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "projectPath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "filePath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "libraryId": "Microsoft.Net.Http",
       "targetGraphs": [
         "net10.0"
@@ -121,9 +121,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Package 'Microsoft.Web.Infrastructure 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
-      "projectPath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "projectPath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "filePath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "libraryId": "Microsoft.Web.Infrastructure",
       "targetGraphs": [
         "net10.0"
@@ -133,9 +133,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Package 'Swashbuckle.Core 5.6.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
-      "projectPath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "projectPath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "filePath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "libraryId": "Swashbuckle.Core",
       "targetGraphs": [
         "net10.0"
@@ -145,9 +145,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Package 'WebActivatorEx 2.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
-      "projectPath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "projectPath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\learn\\aspnet core\\dotnetcore-smrp\\smrp.csproj",
+      "filePath": "C:\\Users\\LENOVO\\Desktop\\github-wfsiew\\dotnetcore-smrp\\smrp.csproj",
       "libraryId": "WebActivatorEx",
       "targetGraphs": [
         "net10.0"

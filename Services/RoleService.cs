@@ -17,25 +17,41 @@ namespace smrp.Services
 
         public async Task<List<Role>> FindAllAsync(string sortBy, string sortDir)
         {
-            List<Role> lx = new List<Role>();
-            using var conn = ctx.CreateConnection();
-            var q = await conn.QueryAsync(@$"select id, name from role order by {sortBy} {sortDir}");
-            lx = Role.List(q);
+            try
+            {
+                using var conn = ctx.CreateConnection();
+                var q = await conn.QueryAsync(@$"select id, name from role order by {sortBy} {sortDir}");
+                var lx = Role.List(q);
+                return lx;
+            }
 
-            return lx;
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Error finding all roles with sortBy: {SortBy}, sortDir: {SortDir}", sortBy, sortDir);
+                throw;
+            }
         }
 
         public async Task<Role?> FindByIdAsync(long id)
         {
             Role? role = null;
-            using var conn = ctx.CreateConnection();
-            var q = await conn.QuerySingleOrDefaultAsync(@"select id, name from role where id = @id limit 1", new { id });
-            if (q != null)
+            try
             {
-                role = Role.Single(q);
+                using var conn = ctx.CreateConnection();
+                var q = await conn.QuerySingleOrDefaultAsync(@"select id, name from role where id = @id limit 1", new { id });
+                if (q != null)
+                {
+                    role = Role.Single(q);
+                }
+
+                return role;
             }
 
-            return role;
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Error finding role by id: {Id}", id);
+                throw;
+            }
         }
     }
 }

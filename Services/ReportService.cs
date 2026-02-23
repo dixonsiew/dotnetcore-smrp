@@ -150,10 +150,17 @@ namespace smrp.Services
             var s = Get(key, doc);
             if (s != "")
             {
-                var o = await commonSetupService.FindByDescAsync(s, table);
-                if (o != null)
+                try
                 {
-                    x = o.Code;
+                    var o = await commonSetupService.FindByDescAsync(s, table);
+                    if (o != null)
+                    {
+                        x = o.Code;
+                    }
+                }
+                
+                catch (Exception)
+                {
                 }
             }
 
