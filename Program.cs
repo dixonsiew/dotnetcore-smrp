@@ -8,7 +8,6 @@ using smrp;
 using smrp.Services;
 using smrp.Utils;
 using System.Text;
-using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -94,6 +93,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 
 var app = builder.Build();
 
+app.UseStaticFiles();
 app.UseSerilogRequestLogging();
 
 string basePath = "smrp";
@@ -147,6 +147,5 @@ app.UseSwaggerUI(c =>
 });
 
 app.MapControllers();
-app.UseStaticFiles();
 
 app.Run();

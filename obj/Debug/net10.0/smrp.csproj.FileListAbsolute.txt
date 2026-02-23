@@ -121,7 +121,6 @@ C:\learn\aspnet core\dotnetcore-smrp\obj\Debug\net10.0\compressed\666b2l6qp7-{0}
 C:\learn\aspnet core\dotnetcore-smrp\obj\Debug\net10.0\compressed\pj78o4vcq4-{0}-n8zpnsqf1l-n8zpnsqf1l.gz
 C:\learn\aspnet core\dotnetcore-smrp\obj\Debug\net10.0\compressed\svnzce24an-{0}-qkngtrm1r3-qkngtrm1r3.gz
 C:\learn\aspnet core\dotnetcore-smrp\obj\Debug\net10.0\compressed\chshe88zth-{0}-lslupxi1nf-lslupxi1nf.gz
-C:\learn\aspnet core\dotnetcore-smrp\obj\Debug\net10.0\compressed\honbgdwen6-{0}-3fz53l5k9g-3fz53l5k9g.gz
 C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\libman.json
 C:\learn\aspnet-core\dotnetcore-smrp\bin\Debug\net10.0\appsettings.Development.json
 C:\learn\aspnet-core\dotnetcore-smrp\bin\Debug\net10.0\appsettings.json
@@ -390,3 +389,22 @@ C:\learn\aspnet-core\dotnetcore-smrp\bin\Debug\net10.0\Serilog.Sinks.File.dll
 C:\learn\aspnet-core\dotnetcore-smrp\bin\Debug\net10.0\SixLabors.Fonts.dll
 C:\learn\aspnet-core\dotnetcore-smrp\bin\Debug\net10.0\System.IO.Packaging.dll
 C:\learn\aspnet-core\dotnetcore-smrp\obj\Debug\net10.0\compressed\honbgdwen6-{0}-0se4s2wfvh-0se4s2wfvh.gz
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\ClosedXML.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\ClosedXML.Parser.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\DocumentFormat.OpenXml.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\DocumentFormat.OpenXml.Framework.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\ExcelNumberFormat.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\RBush.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\Serilog.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\Serilog.AspNetCore.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\Serilog.Extensions.Hosting.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\Serilog.Extensions.Logging.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\Serilog.Formatting.Compact.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\Serilog.Settings.Configuration.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\Serilog.Sinks.Console.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\Serilog.Sinks.Debug.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\Serilog.Sinks.File.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\SixLabors.Fonts.dll
+C:\learn\aspnet core\dotnetcore-smrp\bin\Debug\net10.0\System.IO.Packaging.dll
+C:\learn\aspnet core\dotnetcore-smrp\obj\Debug\net10.0\compressed\honbgdwen6-{0}-0se4s2wfvh-0se4s2wfvh.gz
