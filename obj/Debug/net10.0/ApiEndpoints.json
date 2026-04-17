@@ -4564,6 +4564,16 @@
   },
   {
     "ContainingType": "smrp.Controllers.AuthController",
+    "Method": "TestEndpoint",
+    "RelativePath": "config",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "smrp.Controllers.AuthController",
     "Method": "Refresh",
     "RelativePath": "o/refresh-token",
     "HttpMethod": "POST",

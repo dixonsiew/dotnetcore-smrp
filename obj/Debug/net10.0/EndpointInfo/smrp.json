@@ -6,6 +6,18 @@
     "version": "v1"
   },
   "paths": {
+    "/config": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/o/token": {
       "post": {
         "tags": [

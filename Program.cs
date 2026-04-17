@@ -12,7 +12,6 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Host.UseSerilog((context, services, configuration) =>
 {
     configuration
@@ -60,6 +59,7 @@ builder.Services.AddSwaggerGen(c =>
     //});
     c.OperationFilter<AuthorizationOperationFilter>();
 });
+builder.Services.AddSingleton<ConfigService>();
 builder.Services.AddScoped<DefaultConnection>();
 builder.Services.AddScoped<RsConnection>();
 builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetConnectionString("MongoDbConnection")));

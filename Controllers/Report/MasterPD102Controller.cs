@@ -24,17 +24,17 @@ namespace smrp.Controllers.Report
     public class MasterPD102Controller : ControllerBase
     {
         private readonly RsConnection rscon;
-        private readonly IConfiguration config;
         private readonly IMongoClient client;
+        private readonly ConfigService configService;
         private readonly CommonSetupService commonSetupService;
         private readonly ReportService reportService;
         private readonly JsonSerializerOptions jsonOptions;
 
-        public MasterPD102Controller(RsConnection rsconn, IConfiguration cfg, IMongoClient cli, ILogger<MasterPD102Controller> logger, CommonSetupService cs, ReportService rs)
+        public MasterPD102Controller(RsConnection rsconn, IMongoClient cli, ILogger<MasterPD102Controller> logger, ConfigService cfs, CommonSetupService cs, ReportService rs)
         {
             rscon = rsconn;
-            config = cfg;
             client = cli;
+            configService = cfs;
             commonSetupService = cs;
             reportService = rs;
             jsonOptions = new JsonSerializerOptions
@@ -159,7 +159,7 @@ namespace smrp.Controllers.Report
                 forms.Add(m);
             }
 
-            var facilityCode = config["facilityCode"];
+            var facilityCode = configService.FacilityCode;
             var filename = $"{ds1}_{ds2}_PD102.json";
 
             Response.Headers.Append(HeaderNames.ContentDisposition, $"attachment; filename={filename}");
@@ -205,7 +205,7 @@ namespace smrp.Controllers.Report
             var ds2 = $"{dt2[2]}{dt2[1]}{dt2[0]}";
             var pf = "PD102";
             
-            var facilityCode = config["facilityCode"];
+            var facilityCode = configService.FacilityCode;
             var filename = $"{facilityCode}_{ds1}_{ds2}_{pf}.xlsx";
 
             using var workbook = new XLWorkbook();
@@ -383,7 +383,7 @@ namespace smrp.Controllers.Report
         {
             string suffix = "";
             IMongoDatabase db;
-            if (config["mongodb.prefix"] == "prod")
+            if (configService.MongoDbPrefix == "prod")
             {
                 suffix = "_prod";
             }
