@@ -38,23 +38,10 @@ namespace smrp.Models
 
         public static List<CommonSetup> List(IEnumerable<dynamic> q)
         {
-            return q.Select(o => new CommonSetup
-            {
-                Id = o.id,
-                Code = o.code,
-                Desc = o.desc,
-                Ref = o.reff,
-                CreatedBy = o.created_by,
-                CreatedDate = o.created_date?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
-                ModifiedBy = o.modified_by,
-                ModifiedDate = o.modified_date?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
-                Deleted = o.deleted,
-                DeletedBy = o.deleted_by,
-                DeletedDate = o.deleted_date?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
-            }).ToList();
+            return q.Select(FromRs).ToList();
         }
 
-        public static CommonSetup Single(dynamic o)
+        public static CommonSetup FromRs(dynamic o)
         {
             return new CommonSetup
             {

@@ -24,7 +24,7 @@ namespace smrp.Services
                 var q = await conn.QuerySingleOrDefaultAsync(@$"select id, code, ""desc"", ref reff, created_by, created_date, modified_by, modified_date, deleted, deleted_by, deleted_date from {table} where id = @id limit 1", new { id });
                 if (q != null)
                 {
-                    o = CommonSetup.Single(q);
+                    o = CommonSetup.FromRs(q);
                 }
 
                 return o;
@@ -46,7 +46,7 @@ namespace smrp.Services
                 var q = await conn.QuerySingleOrDefaultAsync(@$"select t.id, t.code, t.desc, t.ref reff, t.created_by, t.created_date, t.modified_by, t.modified_date, t.deleted, t.deleted_by, t.deleted_date from {table} t where lower(t.desc) = lower(@desc) limit 1", new { desc });
                 if (q != null)
                 {
-                    o = CommonSetup.Single(q);
+                    o = CommonSetup.FromRs(q);
                 }
 
                 return o;

@@ -12,14 +12,10 @@ namespace smrp.Models
 
         public static List<Role> List(IEnumerable<dynamic> q)
         {
-            return q.Select(o => new Role
-            {
-                Id = o.id,
-                Name = o.name,
-            }).ToList();
+            return q.Select(FromRs).ToList();
         }
 
-        public static Role Single(dynamic o)
+        public static Role FromRs(dynamic o)
         {
             return new Role
             {

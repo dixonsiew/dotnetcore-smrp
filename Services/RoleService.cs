@@ -41,7 +41,7 @@ namespace smrp.Services
                 var q = await conn.QuerySingleOrDefaultAsync(@"select id, name from role where id = @id limit 1", new { id });
                 if (q != null)
                 {
-                    role = Role.Single(q);
+                    role = Role.FromRs(q);
                 }
 
                 return role;

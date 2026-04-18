@@ -80,6 +80,20 @@ namespace smrp.Models
             return lx;
         }
 
+        public static User FromRs(dynamic o, IDbConnection con)
+        {
+            return new User
+            {
+                Id = o.id,
+                FirstName = o.first_name,
+                LastName = o.last_name,
+                Password = o.password,
+                Username = o.username,
+                LastLogin = o.last_login?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
+                Roles = GetRoles(o.id, con),
+            };
+        }
+
         public static async Task<User> SingleAsync(dynamic o, IDbConnection con)
         {
             return new User
