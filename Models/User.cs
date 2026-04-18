@@ -1,7 +1,5 @@
 ﻿using Dapper;
 using System.Data;
-using System.Globalization;
-using System.Linq;
 using System.Text.Json.Serialization;
 
 namespace smrp.Models
@@ -28,18 +26,19 @@ namespace smrp.Models
 
         public List<Role>? Roles { get; set; }
 
+        private void SetRoles(IDbConnection con)
+        {
+            Roles = User.GetRoles(Id, con);
+        }
+
         public static List<User> List(IEnumerable<dynamic> q, IDbConnection con)
         {
-            return q.Select(o => new User
+            var lx = q.Select(FromRs).ToList();
+            foreach (var x in lx)
             {
-                Id = o.id,
-                FirstName = o.first_name,
-                LastName = o.last_name,
-                Password = o.password,
-                Username = o.username,
-                LastLogin = o.last_login?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
-                Roles = GetRoles(o.id, con),
-            }).ToList();
+                x.SetRoles(con);
+            }
+            return lx;
         }
 
         public static async Task<List<User>> ListAsync(IEnumerable<dynamic> q, IDbConnection con)
@@ -80,7 +79,7 @@ namespace smrp.Models
             return lx;
         }
 
-        public static User FromRs(dynamic o, IDbConnection con)
+        public static User FromRs(dynamic o)
         {
             return new User
             {
@@ -90,7 +89,6 @@ namespace smrp.Models
                 Password = o.password,
                 Username = o.username,
                 LastLogin = o.last_login?.ToString("yyyy-MM-ddTHH:mm:ssZ"),
-                Roles = GetRoles(o.id, con),
             };
         }
 

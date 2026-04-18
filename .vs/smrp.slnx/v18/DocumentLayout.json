@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet-core\\dotnetcore-smrp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet-core\\dotnetcore-smrp\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet-core\\dotnetcore-smrp\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet-core\\dotnetcore-smrp\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet-core\\dotnetcore-smrp\\controllers\\setup\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:controllers\\setup\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet-core\\dotnetcore-smrp\\services\\configservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:services\\configservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet-core\\dotnetcore-smrp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|c:\\learn\\aspnet-core\\dotnetcore-smrp\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71DD7209-1253-06FC-462E-95C9E6646065}|smrp.csproj|solutionrelative:dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +30,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAwwGEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T14:43:26.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Models\\Role.cs",
+              "RelativeDocumentMoniker": "Models\\Role.cs",
+              "ToolTip": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Models\\Role.cs",
+              "RelativeToolTip": "Models\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T14:43:20.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "RoleController.cs",
               "DocumentMoniker": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Controllers\\Setup\\RoleController.cs",
               "RelativeDocumentMoniker": "Controllers\\Setup\\RoleController.cs",
@@ -42,37 +68,11 @@
               "RelativeToolTip": "Controllers\\Setup\\RoleController.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T13:47:05.136Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-18T13:47:05.136Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ConfigService.cs",
-              "DocumentMoniker": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Services\\ConfigService.cs",
-              "RelativeDocumentMoniker": "Services\\ConfigService.cs",
-              "ToolTip": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Services\\ConfigService.cs",
-              "RelativeToolTip": "Services\\ConfigService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T14:58:45.71Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAD0AAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T14:12:08.521Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "LoginDto.cs",
               "DocumentMoniker": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Dtos\\LoginDto.cs",
               "RelativeDocumentMoniker": "Dtos\\LoginDto.cs",
@@ -80,17 +80,18 @@
               "RelativeToolTip": "Dtos\\LoginDto.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-23T07:33:56.521Z"
+              "WhenOpened": "2026-02-23T07:33:56.521Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Services\\UserService.cs",
               "ToolTip": "C:\\learn\\aspnet-core\\dotnetcore-smrp\\Services\\UserService.cs",
               "RelativeToolTip": "Services\\UserService.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAgwEQAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-23T07:20:42.365Z",
               "EditorCaption": ""
