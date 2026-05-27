@@ -43,6 +43,24 @@ namespace smrp.Controllers
                 await userService.UpdateLastLoginAsync(user.Id);
                 string token = tokenService.GenerateAccessToken(user);
                 string refreshToken = tokenService.GenerateRefreshToken(user);
+
+                Response.Cookies.Append("token", token, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = false,
+                    SameSite = SameSiteMode.Lax,
+                    Path = "/",
+                    MaxAge = TimeSpan.FromHours(24),
+                });
+                Response.Cookies.Append("refreshToken", refreshToken, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = false,
+                    SameSite = SameSiteMode.Lax,
+                    Path = "/o/refresh-token",
+                    MaxAge = TimeSpan.FromDays(7),
+                });
+
                 return Results.Json(new
                 {
                     type = "bearer",
@@ -77,11 +95,31 @@ namespace smrp.Controllers
                     throw new Exception();
                 }
 
-                string token = tokenService.GenerateRefreshToken(user);
+                string token = tokenService.GenerateAccessToken(user);
+                string refreshToken = tokenService.GenerateRefreshToken(user);
+
+                Response.Cookies.Append("token", token, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = false,
+                    SameSite = SameSiteMode.Lax,
+                    Path = "/",
+                    MaxAge = TimeSpan.FromHours(24),
+                });
+                Response.Cookies.Append("refreshToken", refreshToken, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = false,
+                    SameSite = SameSiteMode.Lax,
+                    Path = "/o/refresh-token",
+                    MaxAge = TimeSpan.FromDays(7),
+                });
+
                 return Results.Json(new
                 {
                     type = "bearer",
                     token,
+                    refresh_token = refreshToken,
                 });
             }
 
