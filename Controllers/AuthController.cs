@@ -21,6 +21,30 @@ namespace smrp.Controllers
             userService = us;
         }
 
+        [HttpPost("o/logout")]
+        [AllowAnonymous]
+        public async Task<IResult> Logout()
+        {
+            Response.Cookies.Delete("token", new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = false,
+                SameSite = SameSiteMode.Lax,
+                Path = "/",
+            });
+            Response.Cookies.Delete("refreshToken", new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = false,
+                SameSite = SameSiteMode.Lax,
+                Path = "/o/refresh-token",
+            });
+            return Results.Json(new
+            {
+                success = 1,
+            });
+        }
+
         [HttpPost("o/token")]
         [AllowAnonymous]
         public async Task<IResult> Login(LoginDto data)
@@ -76,12 +100,17 @@ namespace smrp.Controllers
         }
 
         [HttpPost("o/refresh-token")]
-        [Authorize]
         public async Task<IResult> Refresh(RefreshTokenDto data)
         {
             try
             {
-                var userClaimsPrincipal = tokenService.GetPrincipalFromExpiredToken(data.RefreshToken);
+                string? crefreshToken = Request.Cookies["refreshToken"];
+                if (crefreshToken == null)
+                {
+                    crefreshToken = data.RefreshToken;
+                }
+
+                var userClaimsPrincipal = tokenService.GetPrincipalFromExpiredToken(crefreshToken ?? "");
                 var userId = userClaimsPrincipal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                 if (userId == null)
                 {

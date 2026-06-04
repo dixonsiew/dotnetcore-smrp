@@ -27,9 +27,10 @@ builder.Services.AddCors(c =>
 {
     c.AddPolicy("smrp", c =>
     {
-        c.WithOrigins("*")
+        c.WithOrigins("http://localhost:3000")
         .AllowAnyHeader()
         .AllowAnyMethod()
+        .AllowCredentials()
         .WithExposedHeaders("Authorization", "filename", Constants.X_TOTAL_COUNT, Constants.X_TOTAL_PAGE);
     });
 });
